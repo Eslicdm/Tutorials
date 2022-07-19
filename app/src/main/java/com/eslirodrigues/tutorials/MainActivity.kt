@@ -3,7 +3,7 @@ package com.eslirodrigues.tutorials
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.eslirodrigues.tutorials.ui.screen.UserScreen
+import com.eslirodrigues.tutorials.state_stateflow_viewmodel.ui.screen.UserScreen
 import com.eslirodrigues.tutorials.ui.theme.TutorialsTheme
 
 class MainActivity : ComponentActivity() {

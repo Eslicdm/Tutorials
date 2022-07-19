@@ -1,4 +1,4 @@
-package com.eslirodrigues.tutorials.ui.screen
+package com.eslirodrigues.tutorials.state_stateflow_viewmodel.ui.screen
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -9,7 +9,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.eslirodrigues.tutorials.ui.viewmodel.UserViewModel
+import com.eslirodrigues.tutorials.state_stateflow_viewmodel.ui.viewmodel.UserViewModel
 
 @Composable
 fun UserScreen(

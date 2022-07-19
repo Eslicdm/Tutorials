@@ -1,8 +1,8 @@
-package com.eslirodrigues.tutorials.ui.viewmodel
+package com.eslirodrigues.tutorials.state_stateflow_viewmodel.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.eslirodrigues.tutorials.ui.state.UserState
+import com.eslirodrigues.tutorials.state_stateflow_viewmodel.ui.state.UserState
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
