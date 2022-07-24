@@ -3,7 +3,7 @@ package com.eslirodrigues.tutorials
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.eslirodrigues.tutorials.state_user_event_viewmodel.ui.screen.CardScreen
+import com.eslirodrigues.tutorials.searchbar_state_viewmodel.ui.screen.SearchBarScreen
 import com.eslirodrigues.tutorials.ui.theme.TutorialsTheme
 
 class MainActivity : ComponentActivity() {
@@ -11,7 +11,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TutorialsTheme {
-                CardScreen()
+                SearchBarScreen()
             }
         }
     }
