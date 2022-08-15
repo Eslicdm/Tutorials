@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import com.eslirodrigues.tutorials.navigation.ui.navigation.NavGraph
 import com.eslirodrigues.tutorials.navigation_drawer.ui.navigation.NavDrawerGraph
 import com.eslirodrigues.tutorials.stickyheader_lazycolumn.ui.screen.StickyHeaderScreen
+import com.eslirodrigues.tutorials.swipetorefresh_accompanist.ui.screen.SwipeAccompanistScreen
 import com.eslirodrigues.tutorials.ui.theme.TutorialsTheme
 
 class MainActivity : ComponentActivity() {
@@ -13,7 +14,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TutorialsTheme {
-                NavDrawerGraph()
+                SwipeAccompanistScreen()
             }
         }
     }
