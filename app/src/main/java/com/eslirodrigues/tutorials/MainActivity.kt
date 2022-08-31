@@ -14,6 +14,7 @@ import com.eslirodrigues.tutorials.navigation.ui.navigation.NavGraph
 import com.eslirodrigues.tutorials.navigation_drawer.ui.navigation.NavDrawerGraph
 import com.eslirodrigues.tutorials.stickyheader_lazycolumn.ui.screen.StickyHeaderScreen
 import com.eslirodrigues.tutorials.swipetorefresh_accompanist.ui.screen.SwipeAccompanistScreen
+import com.eslirodrigues.tutorials.toast.ui.screen.ToastScreen
 import com.eslirodrigues.tutorials.ui.theme.TutorialsTheme
 import com.google.android.gms.ads.MobileAds
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,16 +22,12 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    @Inject lateinit var adMobInterstitial: AdMobInterstitial
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        adMobInterstitial.loadAd()
         setContent {
             TutorialsTheme {
-                AdMobNavGraph {
-                    adMobInterstitial.showAdd(this)
-                }
+                ToastScreen()
             }
         }
     }

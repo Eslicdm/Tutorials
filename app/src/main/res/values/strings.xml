@@ -3,4 +3,5 @@
     <string name="ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
     <string name="dependency_string">Dependency String</string>
+    <string name="toast_showed">Toast Showed</string>
 </resources>
