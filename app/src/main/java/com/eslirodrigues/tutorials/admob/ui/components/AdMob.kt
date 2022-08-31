@@ -1,6 +1,7 @@
 package com.eslirodrigues.tutorials.admob.ui.components
 
 import android.app.Activity
+import android.content.Context
 import android.widget.Toast
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalConfiguration
@@ -9,6 +10,7 @@ import com.eslirodrigues.tutorials.R
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import javax.inject.Inject
 
 @Composable
 fun AdMobBanner() {
@@ -24,9 +26,10 @@ fun AdMobBanner() {
     )
 }
 
-class AdMobInterstitial(private val activity: Activity) {
+class AdMobInterstitial @Inject constructor(
+    private val context: Context
+) {
     var mInterstitialAd: InterstitialAd? = null
-    private val context = activity.applicationContext
     fun loadAd() {
         val adUnitId = context.getString(R.string.interstitial_ad_unit_id)
         val adRequest = AdRequest.Builder().build()
@@ -42,7 +45,7 @@ class AdMobInterstitial(private val activity: Activity) {
             }
         })
     }
-    fun showAdd() {
+    fun showAdd(activity: Activity) {
         if (mInterstitialAd != null) {
             mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
                 override fun onAdDismissedFullScreenContent() {

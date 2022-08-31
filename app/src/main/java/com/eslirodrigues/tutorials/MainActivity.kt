@@ -21,12 +21,16 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    @Inject lateinit var adMobInterstitial: AdMobInterstitial
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        adMobInterstitial.loadAd()
         setContent {
             TutorialsTheme {
-                DependencyScreen()
+                AdMobNavGraph {
+                    adMobInterstitial.showAdd(this)
+                }
             }
         }
     }
