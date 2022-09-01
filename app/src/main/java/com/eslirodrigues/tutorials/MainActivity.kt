@@ -12,6 +12,7 @@ import com.eslirodrigues.tutorials.di_hilt.ui.screen.DependencyScreen
 import com.eslirodrigues.tutorials.lazy_row_column_grid.ui.screen.TutorialLazyScreen
 import com.eslirodrigues.tutorials.navigation.ui.navigation.NavGraph
 import com.eslirodrigues.tutorials.navigation_drawer.ui.navigation.NavDrawerGraph
+import com.eslirodrigues.tutorials.snackbar.ui.screen.SnackBarScreen
 import com.eslirodrigues.tutorials.stickyheader_lazycolumn.ui.screen.StickyHeaderScreen
 import com.eslirodrigues.tutorials.swipetorefresh_accompanist.ui.screen.SwipeAccompanistScreen
 import com.eslirodrigues.tutorials.toast.ui.screen.ToastScreen
@@ -27,7 +28,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TutorialsTheme {
-                ToastScreen()
+                TutorialLazyScreen()
             }
         }
     }
