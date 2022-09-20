@@ -38,16 +38,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TutorialsTheme {
-                Column(Modifier.fillMaxSize()) {
-                    Button(
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.onPrimaryContainer,
-                        ),
-                        onClick = { /*TODO*/ }
-                    ) {
-                        Text(text = "Button")
-                    }
-                }
+                MenuScreen()
             }
         }
     }
