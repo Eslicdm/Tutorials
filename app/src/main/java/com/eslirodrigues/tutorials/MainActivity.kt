@@ -18,6 +18,9 @@ import com.eslirodrigues.tutorials.admob.ui.screen.AdScreen
 import com.eslirodrigues.tutorials.animated_navigation.ui.navigation.NavAnimatedGraph
 import com.eslirodrigues.tutorials.chips.ui.screen.ChipsScreen
 import com.eslirodrigues.tutorials.di_hilt.ui.screen.DependencyScreen
+import com.eslirodrigues.tutorials.firebase_auth.ui.screen.TutorialFirebaseAuthScreen
+import com.eslirodrigues.tutorials.firebase_crashlytics.ui.screen.TutorialCrashlyticsScreen
+import com.eslirodrigues.tutorials.firebase_realtimedb.ui.screen.TutorialRealtimeDBScreen
 import com.eslirodrigues.tutorials.lazy_row_column_grid.ui.screen.TutorialLazyScreen
 import com.eslirodrigues.tutorials.menu.ui.screen.MenuScreen
 import com.eslirodrigues.tutorials.navigation.ui.navigation.NavGraph
@@ -38,7 +41,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TutorialsTheme {
-                ChipsScreen()
+                TutorialCrashlyticsScreen()
             }
         }
     }
