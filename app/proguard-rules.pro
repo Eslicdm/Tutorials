@@ -24,3 +24,11 @@
 # Crashlytics
 -keepattributes SourceFile,LineNumberTable        # Keep file names and line numbers.
 -keep public class * extends java.lang.Exception
+
+# Realtime Database
+# Add this global rule
+-keepattributes Signature
+
+-keepclassmembers class com.eslirodrigues.tutorials.firebase_realtimedb.data.model.** {
+      *;
+}
