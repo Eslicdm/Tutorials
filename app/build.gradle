@@ -64,6 +64,12 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
 
+    // Room
+    implementation "androidx.room:room-runtime:2.4.3"
+    annotationProcessor "androidx.room:room-compiler:2.4.3"
+    kapt "androidx.room:room-compiler:2.4.3"
+    implementation "androidx.room:room-ktx:2.4.3"
+
     // Firebase Crashlytics
     implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.13'
     implementation 'com.google.firebase:firebase-analytics-ktx:21.1.1'
