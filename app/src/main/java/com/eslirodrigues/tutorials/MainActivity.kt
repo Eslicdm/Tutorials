@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
+import com.eslirodrigues.tutorials.alert_dialog.ui.screen.TutorialDialogScreen
 import com.eslirodrigues.tutorials.firebase_auth.ui.navigation.FirebaseAuthNavGraph
 import com.eslirodrigues.tutorials.firebase_auth.ui.screen.auth.FirebaseAuthSignInScreen
 import com.eslirodrigues.tutorials.firebase_auth.ui.screen.auth.FirebaseAuthSignUpScreen
@@ -19,7 +20,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TutorialsTheme {
-                RoomUserScreen()
+                TutorialDialogScreen()
             }
         }
     }
