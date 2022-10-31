@@ -3,6 +3,7 @@ package com.eslirodrigues.tutorials
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import com.eslirodrigues.tutorials.bottom_app_bar.ui.screen.TutorialBottomAppBarScreen
 import com.eslirodrigues.tutorials.floating_action_button.ui.screen.TutorialFABScreen
 import com.eslirodrigues.tutorials.navigation_bar.ui.navigation.TutorialNavigationBarNavGraph
 import com.eslirodrigues.tutorials.radio_button_checkbox.ui.screen.RadioButtonAndCheckboxScreen
@@ -16,7 +17,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TutorialsTheme {
-                RadioButtonAndCheckboxScreen()
+                TutorialBottomAppBarScreen()
             }
         }
     }
