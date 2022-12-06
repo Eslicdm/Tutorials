@@ -1,0 +1,41 @@
+{
+  "count": 178,
+  "results": [
+    {
+      "author_avatar_url": "https://graph.facebook.com/v3.1/10211594978769647/picture?type=square&width=200&height=200",
+      "author_name": "Jan Brockway",
+      "author_rating": 1,
+      "author_user_id": 3841711,
+      "author_username": "",
+      "author_is_verified": 0,
+      "is_flagged": false,
+      "recipe_id": 3562,
+      "status_id": 1,
+      "comment_id": 1571710159,
+      "tip_body": "I added dark chocolate chips and it needed more crunch so I used crunchy peanut butter\nAddictive!",
+      "tip_id": 2257,
+      "tip_photo": null,
+      "created_at": null,
+      "updated_at": 1529548137,
+      "upvotes_total": 131
+    },
+    {
+      "author_avatar_url": "https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/avatars/default/donut.png",
+      "author_name": "",
+      "author_rating": 1,
+      "author_user_id": 3803070,
+      "author_username": "katherine.prokop",
+      "author_is_verified": 0,
+      "is_flagged": false,
+      "recipe_id": 3562,
+      "status_id": 1,
+      "comment_id": 1571758554,
+      "tip_body": "I made these with almond butter and almond extract instead. I added a pinch of stevia for sweetness. One of my favorite Keto snacks when I’m craving sugar!",
+      "tip_id": 58972,
+      "tip_photo": null,
+      "created_at": null,
+      "updated_at": 1542083709,
+      "upvotes_total": 84
+    }
+  ]
+}
