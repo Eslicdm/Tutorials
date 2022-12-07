@@ -7,7 +7,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
+import com.eslirodrigues.tutorials.lazy_row_column_grid.ui.screen.TestTagsConstants.INDEX_CAT_NUMBER
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -23,7 +25,7 @@ fun TutorialLazyListItem(
         )
         Text(
             text = "Number: $number",
-            modifier = Modifier.align(Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally).testTag(INDEX_CAT_NUMBER)
         )
     }
 }
