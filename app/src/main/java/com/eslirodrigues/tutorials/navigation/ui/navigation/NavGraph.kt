@@ -1,6 +1,7 @@
 package com.eslirodrigues.tutorials.navigation.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -11,9 +12,7 @@ import com.eslirodrigues.tutorials.navigation.ui.screen.SecondScreen
 import com.eslirodrigues.tutorials.navigation.ui.screen.ThirdScreen
 
 @Composable
-fun NavGraph() {
-
-    val navController = rememberNavController()
+fun NavGraph(navController: NavHostController = rememberNavController()) {
 
     NavHost(navController = navController, startDestination = NavRoute.NavMainScreen.route) { // "nav_main_screen"
         composable(route = NavRoute.NavMainScreen.route) { NavMainScreen(navController) }
