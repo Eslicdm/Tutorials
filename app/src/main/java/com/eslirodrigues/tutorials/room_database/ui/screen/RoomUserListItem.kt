@@ -14,6 +14,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.eslirodrigues.tutorials.room_database.ui.components.RoomUpdateDialog
 
@@ -32,7 +33,7 @@ fun RoomUserListItem(
             text = "Name: $userName",
             modifier = Modifier.clickable {
                 showUpdateDialog.value = true
-            }
+            }.testTag("ROOM_USER_ITEM")
         )
         IconButton(onClick = {
             onDeleteClick(userId, userName)
