@@ -17,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class RoomUserViewModel @Inject constructor(
     private val repository: RoomUserRepository,
-    @ApplicationContext private val context: Context
+//    @ApplicationContext private val context: Context
 ) : ViewModel() {
 
     private val _userState = MutableStateFlow(RoomUserState())
@@ -31,10 +31,10 @@ class RoomUserViewModel @Inject constructor(
         repository.addUser(user).collect { result ->
             when (result) {
                 is RoomResult.Success -> {
-                    Toast.makeText(context, result.data, Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(context, result.data, Toast.LENGTH_SHORT).show()
                 }
                 is RoomResult.Error -> {
-                    Toast.makeText(context, result.exception.message, Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(context, result.exception.message, Toast.LENGTH_SHORT).show()
                 }
                 is RoomResult.Loading -> {
                 }
@@ -45,10 +45,10 @@ class RoomUserViewModel @Inject constructor(
         repository.updateUser(user).collect { result ->
             when (result) {
                 is RoomResult.Success -> {
-                    Toast.makeText(context, result.data, Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(context, result.data, Toast.LENGTH_SHORT).show()
                 }
                 is RoomResult.Error -> {
-                    Toast.makeText(context, result.exception.message, Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(context, result.exception.message, Toast.LENGTH_SHORT).show()
                 }
                 is RoomResult.Loading -> {
                 }
@@ -59,10 +59,10 @@ class RoomUserViewModel @Inject constructor(
         repository.deleteUser(user).collect { result ->
             when (result) {
                 is RoomResult.Success -> {
-                    Toast.makeText(context, result.data, Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(context, result.data, Toast.LENGTH_SHORT).show()
                 }
                 is RoomResult.Error -> {
-                    Toast.makeText(context, result.exception.message, Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(context, result.exception.message, Toast.LENGTH_SHORT).show()
                 }
                 is RoomResult.Loading -> {
                 }
