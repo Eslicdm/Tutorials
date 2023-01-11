@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.eslirodrigues.tutorials.coil.ui.screen.TutorialCoilScreen
+import com.eslirodrigues.tutorials.notification.ui.navigation.NotificationNavGraph
 import com.eslirodrigues.tutorials.notification.ui.screen.NotificationScreen
+import com.eslirodrigues.tutorials.permission.ui.screen.PermissionScreen
 import com.eslirodrigues.tutorials.ui.theme.TutorialsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,7 +17,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TutorialsTheme {
-                TutorialCoilScreen()
+                PermissionScreen()
             }
         }
     }
