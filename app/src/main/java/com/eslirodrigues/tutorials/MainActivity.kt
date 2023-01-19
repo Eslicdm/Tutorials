@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.eslirodrigues.tutorials.coil.ui.screen.TutorialCoilScreen
+import com.eslirodrigues.tutorials.countdowntimer.ui.screen.TutorialCountDownTimerScreen
 import com.eslirodrigues.tutorials.notification.ui.navigation.NotificationNavGraph
 import com.eslirodrigues.tutorials.notification.ui.screen.NotificationScreen
 import com.eslirodrigues.tutorials.permission.ui.screen.PermissionScreen
@@ -17,7 +18,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TutorialsTheme {
-                PermissionScreen()
+                TutorialCountDownTimerScreen()
             }
         }
     }
