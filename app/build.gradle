@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
+    id 'com.squareup.sqldelight'
 }
 
 android {
@@ -106,6 +107,10 @@ dependencies {
     kapt "androidx.room:room-compiler:2.4.3"
     implementation "androidx.room:room-ktx:2.4.3"
 
+    // SQL Delight
+    implementation "com.squareup.sqldelight:android-driver:1.5.4"
+    implementation "com.squareup.sqldelight:coroutines-extensions-jvm:1.5.2"
+
     // Firebase Crashlytics
     implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.13'
     implementation 'com.google.firebase:firebase-analytics-ktx:21.1.1'
@@ -142,4 +147,10 @@ dependencies {
 
     // Extended Icons
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
+}
+
+sqldelight {
+    TutorialSqlDelightDatabase {
+        packageName = "com.eslirodrigues.tutorials"
+    }
 }

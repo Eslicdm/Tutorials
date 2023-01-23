@@ -1,0 +1,16 @@
+CREATE TABLE sqldelightUserEntity (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userName TEXT NOT NULL
+);
+
+addUser:
+INSERT OR ABORT INTO sqldelightUserEntity(id, userName) VALUES (?, ?);
+
+updateUser:
+INSERT OR REPLACE INTO sqldelightUserEntity(id, userName) VALUES (?, ?);
+
+deleteUser:
+DELETE FROM sqldelightUserEntity WHERE id = :id;
+
+getAllUsers:
+SELECT * FROM sqldelightUserEntity;
