@@ -14,14 +14,14 @@ import com.eslirodrigues.tutorials.sqldelight_database.ui.screen.SqlDelightUserS
 import com.eslirodrigues.tutorials.ui.theme.TutorialsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+//@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             TutorialsTheme {
-                SqlDelightUserScreen()
+                KoinScreen()
             }
         }
     }
