@@ -1,11 +1,9 @@
 package com.eslirodrigues.tutorials.firebase_realtimedb.ui.components
 
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RealtimeDBDialog(
     userName: String,

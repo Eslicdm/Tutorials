@@ -1,10 +1,7 @@
 package com.eslirodrigues.tutorials.firebase_auth.ui.screen.auth
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Button
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -19,6 +16,7 @@ import com.eslirodrigues.tutorials.firebase_auth.ui.navigation.FirebaseAuthNavRo
 import com.eslirodrigues.tutorials.firebase_auth.ui.state.FirebaseLoginState
 import com.eslirodrigues.tutorials.firebase_auth.ui.viewmodel.FirebaseAuthViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FirebaseAuthSignUpScreen(
     navController: NavController,

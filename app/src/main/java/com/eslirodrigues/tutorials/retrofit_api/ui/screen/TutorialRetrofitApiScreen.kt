@@ -1,10 +1,7 @@
 package com.eslirodrigues.tutorials.retrofit_api.ui.screen
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Button
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -13,6 +10,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.eslirodrigues.tutorials.retrofit_api.data.model.dto.RetrofitApiProductPost
 import com.eslirodrigues.tutorials.retrofit_api.ui.viewmodel.RetrofitApiViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TutorialRetrofitApiScreen(
     viewModel: RetrofitApiViewModel = hiltViewModel()
