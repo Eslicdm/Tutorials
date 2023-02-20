@@ -22,11 +22,10 @@ import com.eslirodrigues.tutorials.navigation_drawer.ui.navigation.NavDrawerRout
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavDrawer(
     drawerState: DrawerState,
-    drawerContent: @Composable ColumnScope.() -> Unit,
+    drawerContent: @Composable () -> Unit,
     content: @Composable () -> Unit
 ) {
     // Avoid use drawer with other nav components: bottomNav, tabNav, rail
@@ -36,8 +35,6 @@ fun NavDrawer(
             drawerContent()
         },
         gesturesEnabled = true,
-        drawerContainerColor = Color.Red,
-        drawerContentColor = Color.Green,
         scrimColor = Color.Yellow
     ) {
         content()
@@ -57,62 +54,70 @@ fun DrawerContent(
         NavDrawerRoute.NavDrawerScreen,
         NavDrawerRoute.SecondDrawerScreen,
     )
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(MaterialTheme.colorScheme.primary)
-            .padding(15.dp)
-    ) {
-        Image(
-            painter = painterResource(id = R.mipmap.ic_launcher_logo_foreground),
-            contentDescription = stringResource(id = R.string.app_name)
-        )
-        Text(
-            text = "Tutorials",
-            modifier = Modifier.padding(10.dp),
-            fontSize = 24.sp,
-            color = MaterialTheme.colorScheme.onPrimary,
-            fontWeight = FontWeight.Bold
-        )
-    }
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(Color.Black)
-            .padding(12.dp),
-    ) {
-        val navBackStackEntry by navController.currentBackStackEntryAsState()
-        val currentRoute = navBackStackEntry?.destination?.route
+
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
+
+    ModalDrawerSheet {
+        Column(
+            Modifier
+                .fillMaxWidth()
+                .background(MaterialTheme.colorScheme.primary)
+                .padding(12.dp)
+        ) {
+            Image(
+                painter = painterResource(id = R.mipmap.ic_launcher_logo_foreground),
+                contentDescription = stringResource(id = R.string.app_name)
+            )
+            Text(
+                text = "Tutorials",
+                modifier = Modifier.padding(10.dp),
+                fontSize = 24.sp,
+                color = MaterialTheme.colorScheme.onPrimary,
+                fontWeight = FontWeight.Bold
+            )
+        }
 
         itemsList.forEach { navDrawerItem ->
-            val backgroundColor = if (navDrawerItem.route == currentRoute) Color.DarkGray else Color.Transparent
-            val textIconColor = if (navDrawerItem.route == currentRoute) MaterialTheme.colorScheme.primary else Color.LightGray
-            TextButton(
-                modifier = Modifier
-                    .background(backgroundColor, shape = CircleShape)
-                    .padding(vertical = 8.dp),
+            NavigationDrawerItem(
+                modifier = Modifier.padding(8.dp),
+                icon = {
+                    Icon(
+                        painter = painterResource(id = navDrawerItem.drawerIcon),
+                        contentDescription = navDrawerItem.drawerName
+                    )
+                },
+                badge = { Text(text = "1+") },
+                label = {
+                    Text(
+                        text = navDrawerItem.drawerName,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                },
+                selected = currentRoute == navDrawerItem.route,
                 onClick = {
                     scope.launch { drawerState.close() }
                     if (navDrawerItem.route != currentRoute) {
                         navController.navigate(navDrawerItem.route)
                     }
                 }
-            ) {
-                Icon(
-                    painter = painterResource(id = navDrawerItem.drawerIcon),
-                    contentDescription = navDrawerItem.drawerName,
-                    tint = textIconColor
-                )
-                Spacer(modifier = Modifier.padding(horizontal = 8.dp))
+            )
+        }
+        Divider(modifier = Modifier.padding(22.dp))
+        Text(modifier = Modifier.padding(horizontal = 22.dp), text = "List")
+        NavigationDrawerItem(
+            modifier = Modifier.padding(8.dp),
+            badge = { Text(text = "11+") },
+            label = {
                 Text(
-                    text = navDrawerItem.drawerName,
-                    fontSize = 16.sp, color = textIconColor,
-                    modifier = Modifier.fillMaxWidth(),
+                    text = "Item 1",
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
-            }
-
-        }
+            },
+            selected = false,
+            onClick = {}
+        )
     }
 }
