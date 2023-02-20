@@ -35,11 +35,12 @@ fun MenuScreen() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TutorialTopMenu() {
     var showMenu by remember { mutableStateOf(false) }
 
-    SmallTopAppBar(
+    TopAppBar(
         title = { Text(text = "Tutorial Menu") },
         actions = {
             IconButton(onClick = { showMenu = true }) {
@@ -98,6 +99,7 @@ fun TutorialExposedMenu() {
         onExpandedChange = { showMenu = !showMenu },
     ) {
         TextField(
+            modifier = Modifier.menuAnchor(),
             readOnly = true,
             value = selectedCar,
             onValueChange = { },
@@ -129,7 +131,7 @@ fun TutorialExposedMenu() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TutorialExposedFilterMenu() {
-    val animalList = mutableStateListOf("Dog", "Cat", "Human", "Snake")
+    val animalList = remember { mutableStateListOf("Dog", "Cat", "Human", "Snake") }
     var selectedAnimal by remember { mutableStateOf("") }
     var showMenu by remember { mutableStateOf(false) }
 
@@ -138,6 +140,7 @@ fun TutorialExposedFilterMenu() {
         onExpandedChange = { showMenu = !showMenu },
     ) {
         TextField(
+            modifier = Modifier.menuAnchor(),
             value = selectedAnimal,
             onValueChange = { selectedAnimal = it },
             label = { Text("Animal") },
