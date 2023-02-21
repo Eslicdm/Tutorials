@@ -2,35 +2,54 @@ package com.eslirodrigues.tutorials.state_stateflow_viewmodel.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.eslirodrigues.tutorials.state_stateflow_viewmodel.data.TutorialStateResult
+import com.eslirodrigues.tutorials.state_stateflow_viewmodel.data.model.TutorialStateUser
+import com.eslirodrigues.tutorials.state_stateflow_viewmodel.data.repository.TutorialStateRepository
 import com.eslirodrigues.tutorials.state_stateflow_viewmodel.ui.state.UserState
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class UserViewModel : ViewModel() {
+@HiltViewModel
+class UserViewModel @Inject constructor(
+    repository: TutorialStateRepository,
+) : ViewModel() {
+
+//    val userState: StateFlow<UserState> = repository.getUsers().map { result ->
+//        when (result) {
+//            is TutorialStateResult.Success -> UserState(data = result.data)
+//            is TutorialStateResult.Error -> UserState(errorMsg = result.exception.message)
+//            is TutorialStateResult.Loading -> UserState(isLoading = true)
+//        }
+//    }.stateIn(
+//        scope = viewModelScope,
+//        started = SharingStarted.WhileSubscribed(5000),
+//        initialValue = UserState(isLoading = true)
+//    )
 
     private val _userState = MutableStateFlow(UserState())
-    val userState: StateFlow<UserState> = _userState.asStateFlow()
+    val userState: StateFlow<UserState> =
+        combine(_userState, repository.getUsers()) { local, repository ->
+            when (repository) {
+                is TutorialStateResult.Success -> {
+                    if (local.data != null) {
+                        val list = listOf(repository.data, local.data).flatten()
+                        UserState(data = list)
+                    } else {
+                        UserState(data = repository.data)
+                    }
+                }
+                is TutorialStateResult.Error -> UserState(errorMsg = repository.exception.message)
+                is TutorialStateResult.Loading -> UserState(isLoading = true)
+            }
+        }.stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = UserState(isLoading = true)
+        )
 
-    init {
-        getUsers()
+    fun addUserList(nameList: List<TutorialStateUser>) = viewModelScope.launch {
+        _userState.update { it.copy(data = nameList) }
     }
-
-    private fun getUsers() = viewModelScope.launch {
-        _userState.update { it.copy(isLoading = true) }
-        delay(2000L)
-
-        val userList = listOf("Karen", "Josh", "Michael", "Batman")
-        _userState.update { it.copy(isLoading = false, data = userList) }
-        delay(2000L)
-
-        _userState.update { it.copy(isLoading = true) }
-        delay(1000L)
-
-        _userState.update { it.copy(isLoading = false, data = null, errorMsg = "Not Found") }
-    }
-
 }
