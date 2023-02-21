@@ -23,7 +23,6 @@ data class ChipsModel(
     val textExpanded: String? = null,
     val leadingIcon: ImageVector? = null,
     val trailingIcon: ImageVector? = null,
-    val selectedIcon: ImageVector? = null
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -77,17 +76,16 @@ fun TutorialFilterChip() {
         ChipsModel(
             name = "Cart",
             leadingIcon = Icons.Default.ShoppingCart,
-            selectedIcon = Icons.Default.ShoppingCart
         ),
         ChipsModel(
             name = "Phone",
             subList = listOf("Asus", "Pixel", "Apple"),
             trailingIcon = Icons.Default.ArrowDropDown,
-            selectedIcon = Icons.Default.Check
+            leadingIcon = Icons.Default.Check
         ),
         ChipsModel(
             name = "Tablet",
-            selectedIcon = Icons.Default.Check
+            leadingIcon = Icons.Default.Check
         ),
         ChipsModel(
             name = "Dog",
@@ -95,7 +93,7 @@ fun TutorialFilterChip() {
         )
     )
 
-    val selectedItems = mutableStateListOf<String>()
+    val selectedItems = remember { mutableStateListOf<String>() }
     var isSelected by remember { mutableStateOf(false) }
 
     LazyRow {
@@ -115,12 +113,12 @@ fun TutorialFilterChip() {
                     },
                     label = { Text(text = item.name) },
                     leadingIcon = {
-                        if (item.leadingIcon != null)
+                        val isCheckIcon = item.leadingIcon == Icons.Default.Check
+                        if (item.leadingIcon != null && isCheckIcon && isSelected) {
                             Icon(item.leadingIcon, contentDescription = item.name)
-                    },
-                    selectedIcon = {
-                        if (item.selectedIcon != null) {
-                            Icon(item.selectedIcon, contentDescription = item.name)
+                        }
+                        if (item.leadingIcon != null && !isCheckIcon) {
+                            Icon(item.leadingIcon, contentDescription = item.name)
                         }
                     },
                     trailingIcon = {
@@ -145,6 +143,7 @@ fun ChipWithSubItems(chipLabel: String, chipItems: List<String>) {
         onExpandedChange = { showSubList = !showSubList }
     ) {
         FilterChip(
+            modifier = Modifier.menuAnchor(),
             selected = isSelected,
             onClick = {
                 isSelected = true
@@ -200,7 +199,7 @@ fun TutorialInputChip() {
         )
     )
 
-    val selectedItems = mutableStateListOf<String>()
+    val selectedItems = remember { mutableStateListOf<String>() }
     var isTextExpanded by remember { mutableStateOf(false) }
 
     LazyRow {
@@ -211,6 +210,7 @@ fun TutorialInputChip() {
                 Text(text = item.textExpanded)
             } else {
                 InputChip(
+                    selected = true,
                     onClick = { selectedItems.add(item.name) },
                     label = { Text(text = item.name) },
                     avatar = {
