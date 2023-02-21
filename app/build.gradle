@@ -114,6 +114,9 @@ dependencies {
     implementation "com.squareup.sqldelight:android-driver:1.5.4"
     implementation "com.squareup.sqldelight:coroutines-extensions-jvm:1.5.2"
 
+    // Firebase Firestore
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.4.3'
+
     // Firebase Crashlytics
     implementation 'com.google.firebase:firebase-crashlytics-ktx:18.3.3'
     implementation 'com.google.firebase:firebase-analytics-ktx:21.2.0'
