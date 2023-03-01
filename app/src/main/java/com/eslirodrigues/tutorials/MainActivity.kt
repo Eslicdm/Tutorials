@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TutorialsTheme {
-                TutorialSwipeScreen()
+                TutorialSwitchScreen()
             }
         }
     }
