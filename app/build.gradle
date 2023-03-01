@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.dagger.hilt.android'
     id 'kotlin-kapt'
-    id 'com.google.gms.google-services'
+    id 'com.google.gms.google-services' //
     id 'com.google.firebase.crashlytics'
     id 'com.squareup.sqldelight'
 }
@@ -123,6 +123,9 @@ dependencies {
     // Firebase Crashlytics
     implementation 'com.google.firebase:firebase-crashlytics-ktx:18.3.3'
     implementation 'com.google.firebase:firebase-analytics-ktx:21.2.0'
+
+    // Firebase Messaging
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.1.1'
 
     // Firebase Auth
     implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
