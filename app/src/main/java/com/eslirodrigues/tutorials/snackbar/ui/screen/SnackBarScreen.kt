@@ -1,5 +1,6 @@
 package com.eslirodrigues.tutorials.snackbar.ui.screen
 
+import android.annotation.SuppressLint
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -24,6 +25,7 @@ fun SnackBarScreen() {
     CustomSnackbar()
 }
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BasicSnackbar() {
@@ -62,6 +64,7 @@ fun BasicSnackbar() {
     }
 }
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun StateHostSnackBar() {
@@ -100,6 +103,7 @@ fun StateHostSnackBar() {
     }
 }
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CustomSnackbar() {
