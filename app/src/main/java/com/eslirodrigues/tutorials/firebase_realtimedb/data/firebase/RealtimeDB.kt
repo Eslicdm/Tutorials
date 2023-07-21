@@ -20,6 +20,8 @@ class RealtimeDB @Inject constructor(
         userReference.keepSynced(true)
         val event = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                // mapNotNull and getValue(Realtime.class.java)
+                // so you can remove the null and GenericType error from firebase
                 val users = snapshot.children.map { dataSnapshot ->
                     dataSnapshot.getValue<RealtimeDBUser>()
                 }
