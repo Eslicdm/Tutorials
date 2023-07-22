@@ -23,20 +23,20 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun TutorialHorizontalPagerOnBoardingScreen() {
-    val horizontalPagerState = rememberPagerState()
-    val verticalPagerState = rememberPagerState()
-    val scope = rememberCoroutineScope()
     val pageItems = listOf(Color.Blue, Color.Green, Color.Red)
+    val horizontalPagerState = rememberPagerState { pageItems.size }
+    val verticalPagerState = rememberPagerState { pageItems.size }
+    val scope = rememberCoroutineScope()
 
     Box(modifier = Modifier.fillMaxSize()) {
-        HorizontalPager(pageCount = pageItems.size, state = horizontalPagerState) { currentPage ->
+        HorizontalPager(state = horizontalPagerState) { currentPage ->
             when (currentPage) {
                 0 -> Box(modifier = Modifier.fillMaxSize().background(pageItems[0]))
                 1 -> Box(modifier = Modifier.fillMaxSize().background(pageItems[1]))
                 2 -> Box(modifier = Modifier.fillMaxSize().background(pageItems[2]))
             }
         }
-//        VerticalPager(pageCount = pageItems.size, state = verticalPagerState) { currentPage ->
+//        VerticalPager(state = verticalPagerState) { currentPage ->
 //            when (currentPage) {
 //                0 -> Box(modifier = Modifier.fillMaxSize().background(pageItems[0]))
 //                1 -> Box(modifier = Modifier.fillMaxSize().background(pageItems[1]))
