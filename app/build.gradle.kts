@@ -86,6 +86,9 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.0")
 
+    // Webkit
+    implementation("androidx.webkit:webkit:1.8.0")
+
     // Ktor
     implementation("io.ktor:ktor-client-core:2.3.3")
     implementation("io.ktor:ktor-client-android:2.3.3")
