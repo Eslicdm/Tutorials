@@ -49,18 +49,21 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.0"
     }
-    packagingOptions {
+    packaging {
         resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes.apply {
+                add("/META-INF/{AL2.0, LGPL2.1}")
+                add("META-INF/versions/9/previous-compilation-data.bin")
+            }
         }
     }
     namespace = "com.eslirodrigues.tutorials"
 }
 
 dependencies {
-    implementation("androidx.compose.foundation:foundation:1.6.0-alpha03")
-    implementation("androidx.compose.material3:material3:1.2.0-alpha05")
-    implementation("androidx.compose.material:material:1.6.0-alpha03")
+    implementation("androidx.compose.foundation:foundation:1.6.0-alpha04")
+    implementation("androidx.compose.material3:material3:1.2.0-alpha06")
+    implementation("androidx.compose.material:material:1.6.0-alpha04")
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.compose.ui:ui:1.5.0")
     implementation("androidx.compose.ui:ui-tooling-preview:1.5.0")
@@ -125,10 +128,10 @@ dependencies {
     implementation("com.squareup.sqldelight:coroutines-extensions-jvm:1.5.2")
 
     // Firebase Firestore
-    implementation("com.google.firebase:firebase-firestore-ktx:24.7.0")
+    implementation("com.google.firebase:firebase-firestore-ktx:24.7.1")
 
     // Firebase Crashlytics
-    implementation("com.google.firebase:firebase-crashlytics-ktx:18.4.0")
+    implementation("com.google.firebase:firebase-crashlytics-ktx:18.4.1")
     implementation("com.google.firebase:firebase-analytics-ktx:21.3.0")
 
     // Firebase Messaging
@@ -147,7 +150,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
 
     // Admob
-    implementation("com.google.android.gms:play-services-ads:22.2.0")
+    implementation("com.google.android.gms:play-services-ads:22.3.0")
 
     // Hilt
     implementation("com.google.dagger:hilt-android:2.47")

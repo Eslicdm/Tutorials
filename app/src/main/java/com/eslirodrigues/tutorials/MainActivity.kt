@@ -3,13 +3,12 @@ package com.eslirodrigues.tutorials
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.eslirodrigues.tutorials.brush_gradient.ui.screen.TutorialBrushGradient
-import com.eslirodrigues.tutorials.canvas.ui.screen.TutorialCanvas
-import com.eslirodrigues.tutorials.horizontal_pager_on_boarding.ui.screen.TutorialHorizontalPagerOnBoardingScreen
-import com.eslirodrigues.tutorials.paging.ui.screen.TutorialPagingScreen
-import com.eslirodrigues.tutorials.savedstatehandle.ui.screen.TutorialSavedStateHandleScreen
+import com.eslirodrigues.tutorials.ktor_client.ui.screen.KtorClientScreen
+import com.eslirodrigues.tutorials.marquee.ui.screen.TutorialMarqueeScreen
+import com.eslirodrigues.tutorials.navigation.ui.navigation.NavGraph
+import com.eslirodrigues.tutorials.pull_refresh.ui.screen.PullRefreshScreen
 import com.eslirodrigues.tutorials.ui.theme.TutorialsTheme
-import com.eslirodrigues.tutorials.use_case.ui.screen.TutorialUseCaseScreen
+import com.eslirodrigues.tutorials.web_view.ui.screen.WebViewScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,7 +18,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TutorialsTheme {
-                TutorialSavedStateHandleScreen()
+                TutorialMarqueeScreen()
             }
         }
     }
