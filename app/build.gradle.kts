@@ -8,6 +8,7 @@ plugins {
     id("com.google.firebase.crashlytics")
     id("com.squareup.sqldelight")
     id("com.google.devtools.ksp")
+    kotlin("plugin.serialization") version "1.9.0"
 }
 
 android {
@@ -92,9 +93,11 @@ dependencies {
     // Ktor
     implementation("io.ktor:ktor-client-core:2.3.3")
     implementation("io.ktor:ktor-client-android:2.3.3")
+    implementation("io.ktor:ktor-client-content-negotiation:2.3.3")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.3")
 
-    // WebView
-    implementation("com.google.accompanist:accompanist-webview:0.33.0-alpha")
+    // Kotlin Serialization Json
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0-RC")
 
     // Permissions
     implementation("com.google.accompanist:accompanist-permissions:0.28.0")
