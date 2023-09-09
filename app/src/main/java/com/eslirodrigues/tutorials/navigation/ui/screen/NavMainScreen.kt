@@ -8,9 +8,10 @@ import androidx.compose.ui.Alignment
 import androidx.navigation.NavController
 import com.eslirodrigues.tutorials.navigation.ui.navigation.NavRoute
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NavMainScreen(navController: NavController) {
+fun NavMainScreen(
+    onNavClick: (name: String, isOverEighteen: Boolean) -> Unit
+) {
     var name by remember { mutableStateOf("") }
     var isOverEighteen by remember { mutableStateOf(false) }
 
@@ -22,11 +23,7 @@ fun NavMainScreen(navController: NavController) {
             Checkbox(checked = isOverEighteen, onCheckedChange = { isOverEighteen = !isOverEighteen })
         }
 
-        Button(onClick = {
-            if (name.isNotEmpty()) { // route = "second_screen/$name/$isOverEighteen"
-                navController.navigate(NavRoute.NavSecondScreen.routeWithArgs(name, isOverEighteen))
-            }
-        }) {
+        Button(onClick = { if (name.isNotEmpty()) { onNavClick(name, isOverEighteen) } }) {
             Text(text = "SecondScreen")
         }
     }

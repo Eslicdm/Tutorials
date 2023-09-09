@@ -10,7 +10,8 @@ import com.eslirodrigues.tutorials.navigation.ui.navigation.NavRoute
 
 @Composable
 fun SecondScreen(
-    navController: NavController,
+    onNavClick: () -> Unit,
+    onPopBackStackClick: () -> Unit,
     name: String,
     isOverEighteen: Boolean
 ) {
@@ -18,23 +19,12 @@ fun SecondScreen(
         Text(text = "Second Screen")
         Text(text = "$name is over 18? ${if (isOverEighteen) "Yes" else "No"}")
         Row {
-            Button(
-                onClick = {
-                    navController.popBackStack()
-                }
-            ) {
+            Button(onClick = { onPopBackStackClick() }) {
                 Text(text = "MainScreen")
             }
-            Button(
-                onClick = {
-                    navController.navigate(route = NavRoute.NavThirdScreen.route)
-                }
-            ) {
+            Button(onClick = { onNavClick() }) {
                 Text(text = "ThirdScreen")
             }
         }
-
     }
-
-
 }

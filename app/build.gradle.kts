@@ -81,7 +81,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     testImplementation("io.mockk:mockk:1.13.3")
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.0")
-    androidTestImplementation("androidx.navigation:navigation-testing:2.7.0")
+    androidTestImplementation("androidx.navigation:navigation-testing:2.7.1")
     androidTestImplementation("com.google.truth:truth:1.1.3")
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -150,7 +150,7 @@ dependencies {
     implementation("com.google.firebase:firebase-database-ktx:20.2.2")
 
     // Navigation
-    implementation("androidx.navigation:navigation-compose:2.7.0")
+    implementation("androidx.navigation:navigation-compose:2.7.2")
 
     // viewModel()
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")

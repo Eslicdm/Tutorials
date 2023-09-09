@@ -13,24 +13,36 @@ import com.eslirodrigues.tutorials.navigation.ui.screen.ThirdScreen
 
 @Composable
 fun NavGraph(navController: NavHostController = rememberNavController()) {
-
     NavHost(navController = navController, startDestination = NavRoute.NavMainScreen.route) { // "nav_main_screen"
-        composable(route = NavRoute.NavMainScreen.route) { NavMainScreen(navController) }
-        composable(
-            route = NavRoute.NavSecondScreen.route, // second_screen/{name}/{isOverEighteen}
+        composableSlideHorizontally(route = NavRoute.NavMainScreen.route) {
+            NavMainScreen { name, isOverEighteen ->
+                navController.navigate(NavRoute.NavSecondScreen.routeWithArgs(name, isOverEighteen))
+            }
+        }
+        composableSlideHorizontally(
+            route = NavRoute.NavSecondScreen.route,
             arguments = listOf(
-                navArgument(ArgsKeys.NAME) { // const NAME = name
-                    type = NavType.StringType
-                },
+                navArgument(ArgsKeys.NAME) { type = NavType.StringType },
                 navArgument(ArgsKeys.IS_OVER_EIGHTEEN) { type = NavType.BoolType }
-                // const IS_OVER_EIGHTEEN = isOverEighteen
             )
         ) {
-            val name = it.arguments?.getString(ArgsKeys.NAME) ?: "" // const NAME = name
+            val name = it.arguments?.getString(ArgsKeys.NAME) ?: ""
             val isOverEighteen = it.arguments?.getBoolean(ArgsKeys.IS_OVER_EIGHTEEN) ?: false
-                                    // const IS_OVER_EIGHTEEN = isOverEighteen
-            SecondScreen(navController, name, isOverEighteen)
+            SecondScreen(
+                onNavClick = { navController.navigate(NavRoute.NavThirdScreen.route) },
+                onPopBackStackClick = { navController.popBackStack() },
+                name = name,
+                isOverEighteen = isOverEighteen
+            )
         }
-        composable(route = NavRoute.NavThirdScreen.route) { ThirdScreen(navController = navController) }
+        composableSlideHorizontally(route = NavRoute.NavThirdScreen.route) {
+            ThirdScreen(
+                onNavClick = { navController.navigate(NavRoute.NavMainScreen.route) },
+                onPopBackStackClick = {
+                    navController.popBackStack(NavRoute.NavSecondScreen.route, inclusive = false)
+                }
+            )
+        }
     }
 }
+
