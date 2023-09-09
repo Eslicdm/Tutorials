@@ -80,6 +80,7 @@ dependencies {
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.2")
     testImplementation("junit:junit:4.13.2")
     testImplementation("io.mockk:mockk:1.13.3")
+    testImplementation("io.ktor:ktor-client-mock:2.3.3")
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.0")
     androidTestImplementation("androidx.navigation:navigation-testing:2.7.1")
     androidTestImplementation("com.google.truth:truth:1.1.3")
