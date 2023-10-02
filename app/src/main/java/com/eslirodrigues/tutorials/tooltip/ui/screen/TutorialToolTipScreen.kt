@@ -2,23 +2,20 @@ package com.eslirodrigues.tutorials.tooltip.ui.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.PlainTooltipBox
-import androidx.compose.material3.RichTooltipBox
+import androidx.compose.material3.PlainTooltip
+import androidx.compose.material3.RichTooltip
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.rememberPlainTooltipState
-import androidx.compose.material3.rememberRichTooltipState
+import androidx.compose.material3.TooltipBox
+import androidx.compose.material3.TooltipDefaults
+import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -30,20 +27,24 @@ import kotlinx.coroutines.launch
 @Composable
 fun TutorialToolTipScreen() {
     val scope = rememberCoroutineScope()
-    val plainTooltipState = rememberPlainTooltipState()
-    val richTooltipState = rememberRichTooltipState(isPersistent = true)
+    val plainTooltipState = rememberTooltipState()
+    val richTooltipState = rememberTooltipState(isPersistent = true)
 
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(30.dp, Alignment.CenterVertically)
     ) {
-        PlainTooltipBox(
-            tooltip = { Text("Delete This Item - PlainToolTip Text") },
-            tooltipState = plainTooltipState
+        TooltipBox(
+            positionProvider = TooltipDefaults.rememberPlainTooltipPositionProvider(),
+            state = plainTooltipState,
+            tooltip = {
+                PlainTooltip {
+                    Text("Delete This Item - PlainToolTip Text")
+                }
+            },
         ) {
             Icon(
-                modifier = Modifier.tooltipTrigger() ,
                 imageVector = Icons.Default.Delete,
                 contentDescription = "Delete"
             )
@@ -51,20 +52,25 @@ fun TutorialToolTipScreen() {
         Button(onClick = { scope.launch { plainTooltipState.show() } }) {
             Text("Show PlainTooltip")
         }
-        RichTooltipBox(
-            tooltipState = richTooltipState,
-            title = { Text(text = "Share - Title RichToolTip") },
-            action = {
-                TextButton(onClick = {
-                    scope.launch { richTooltipState.dismiss() }
-                }) {
-                    Text(text = "Dismiss")
-                }
-            },
-            text = { Text(text = "Share with your friends - Text RichToolTip") }
+
+        TooltipBox(
+            positionProvider = TooltipDefaults.rememberRichTooltipPositionProvider(),
+            state = richTooltipState,
+            tooltip = {
+                RichTooltip(
+                    title = { Text(text = "Share - Title RichToolTip") },
+                    text = { Text(text = "Share with your friends - Text RichToolTip") },
+                    action = {
+                        TextButton(onClick = {
+                            scope.launch { richTooltipState.dismiss() }
+                        }) {
+                            Text(text = "Dismiss")
+                        }
+                    }
+                )
+            }
         ) {
             Icon(
-                modifier = Modifier.tooltipTrigger() ,
                 imageVector = Icons.Default.Share,
                 contentDescription = "Share"
             )
