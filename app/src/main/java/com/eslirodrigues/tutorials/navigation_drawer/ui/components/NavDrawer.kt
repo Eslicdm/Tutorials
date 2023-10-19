@@ -3,7 +3,6 @@ package com.eslirodrigues.tutorials.navigation_drawer.ui.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -42,7 +41,6 @@ fun NavDrawer(
 }
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DrawerContent(
     navController: NavController,
@@ -104,7 +102,7 @@ fun DrawerContent(
                 }
             )
         }
-        Divider(modifier = Modifier.padding(22.dp))
+        HorizontalDivider(modifier = Modifier.padding(22.dp))
         Text(modifier = Modifier.padding(horizontal = 22.dp), text = "List")
         NavigationDrawerItem(
             modifier = Modifier.padding(8.dp),

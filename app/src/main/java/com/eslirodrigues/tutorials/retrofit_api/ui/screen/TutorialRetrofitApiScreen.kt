@@ -10,7 +10,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.eslirodrigues.tutorials.retrofit_api.data.model.dto.RetrofitApiProductPost
 import com.eslirodrigues.tutorials.retrofit_api.ui.viewmodel.RetrofitApiViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TutorialRetrofitApiScreen(
     viewModel: RetrofitApiViewModel = hiltViewModel()

@@ -62,17 +62,17 @@ android {
 }
 
 dependencies {
-    implementation("androidx.compose.foundation:foundation:1.6.0-alpha06")
-    implementation("androidx.compose.material3:material3:1.2.0-alpha08")
-    implementation("androidx.compose.material:material:1.6.0-alpha06")
+    implementation("androidx.compose.foundation:foundation:1.6.0-alpha08")
+    implementation("androidx.compose.material3:material3:1.2.0-alpha10")
+    implementation("androidx.compose.material:material:1.6.0-alpha08")
     implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.compose.ui:ui:1.5.2")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.5.2")
+    implementation("androidx.compose.ui:ui:1.5.4")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.5.4")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
-    implementation("androidx.activity:activity-compose:1.7.2")
-    implementation("com.google.android.material:material:1.9.0")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.5.2")
+    implementation("androidx.activity:activity-compose:1.8.0")
+    implementation("com.google.android.material:material:1.10.0")
+    debugImplementation("androidx.compose.ui:ui-tooling:1.5.4")
 
     // Test
     testImplementation("com.squareup.okhttp3:mockwebserver:4.10.0")
@@ -81,8 +81,8 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     testImplementation("io.mockk:mockk:1.13.3")
     testImplementation("io.ktor:ktor-client-mock:2.3.3")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.2")
-    androidTestImplementation("androidx.navigation:navigation-testing:2.7.3")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.4")
+    androidTestImplementation("androidx.navigation:navigation-testing:2.7.4")
     androidTestImplementation("com.google.truth:truth:1.1.3")
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -125,33 +125,33 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
 
     // Room
-    implementation("androidx.room:room-runtime:2.5.2")
-    ksp("androidx.room:room-compiler:2.5.2")
-    annotationProcessor("androidx.room:room-compiler:2.5.2")
-    implementation("androidx.room:room-ktx:2.5.2")
+    implementation("androidx.room:room-runtime:2.6.0")
+    ksp("androidx.room:room-compiler:2.6.0")
+    annotationProcessor("androidx.room:room-compiler:2.6.0")
+    implementation("androidx.room:room-ktx:2.6.0")
 
     // SQL Delight
     implementation("com.squareup.sqldelight:android-driver:1.5.4")
     implementation("com.squareup.sqldelight:coroutines-extensions-jvm:1.5.2")
 
     // Firebase Firestore
-    implementation("com.google.firebase:firebase-firestore-ktx:24.8.1")
+    implementation("com.google.firebase:firebase-firestore-ktx:24.9.0")
 
     // Firebase Crashlytics
-    implementation("com.google.firebase:firebase-crashlytics-ktx:18.4.3")
-    implementation("com.google.firebase:firebase-analytics-ktx:21.3.0")
+    implementation("com.google.firebase:firebase-crashlytics-ktx:18.5.0")
+    implementation("com.google.firebase:firebase-analytics-ktx:21.4.0")
 
     // Firebase Messaging
-    implementation("com.google.firebase:firebase-messaging-ktx:23.2.1")
+    implementation("com.google.firebase:firebase-messaging-ktx:23.3.0")
 
     // Firebase Auth
-    implementation("com.google.firebase:firebase-auth-ktx:22.1.2")
+    implementation("com.google.firebase:firebase-auth-ktx:22.2.0")
 
     // Firebase RealtimeDB
-    implementation("com.google.firebase:firebase-database-ktx:20.2.2")
+    implementation("com.google.firebase:firebase-database-ktx:20.3.0")
 
     // Navigation
-    implementation("androidx.navigation:navigation-compose:2.7.3")
+    implementation("androidx.navigation:navigation-compose:2.7.4")
 
     // viewModel()
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
@@ -169,7 +169,7 @@ dependencies {
     implementation("io.insert-koin:koin-androidx-compose:3.4.1")
 
     // Extended Icons
-    implementation("androidx.compose.material:material-icons-extended:1.5.1")
+    implementation("androidx.compose.material:material-icons-extended:1.5.4")
 }
 
 sqldelight {

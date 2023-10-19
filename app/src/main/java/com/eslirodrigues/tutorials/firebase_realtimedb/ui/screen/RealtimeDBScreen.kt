@@ -12,7 +12,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.eslirodrigues.tutorials.firebase_realtimedb.data.model.RealtimeDBUser
 import com.eslirodrigues.tutorials.firebase_realtimedb.ui.viewmodel.RealtimeDBViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RealtimeDBScreen(
     viewModel: RealtimeDBViewModel = hiltViewModel()

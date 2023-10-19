@@ -13,7 +13,6 @@ import com.eslirodrigues.tutorials.navigation_drawer.ui.components.NavTopAppBar
 import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SecondDrawerScreen(navController: NavController) {
     val drawerState = rememberDrawerState(DrawerValue.Closed)

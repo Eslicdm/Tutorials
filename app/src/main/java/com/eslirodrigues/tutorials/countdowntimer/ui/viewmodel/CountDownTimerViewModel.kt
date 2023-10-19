@@ -1,6 +1,7 @@
 package com.eslirodrigues.tutorials.countdowntimer.ui.viewmodel
 
 import android.os.CountDownTimer
+import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,19 +18,19 @@ class CountDownTimerViewModel : ViewModel() {
     private val userInputSecond = TimeUnit.SECONDS.toMillis(30)
 
     val initialTotalTimeInMillis = userInputHour + userInputMinute + userInputSecond
-    var timeLeft = mutableStateOf(initialTotalTimeInMillis)
+    var timeLeft = mutableLongStateOf(initialTotalTimeInMillis)
     val countDownInterval = 1000L // 1 seconds is the lowest
 
-    val timerText = mutableStateOf(timeLeft.value.timeFormat())
+    val timerText = mutableStateOf(timeLeft.longValue.timeFormat())
 
     val isPlaying = mutableStateOf(false)
 
     fun startCountDownTimer() = viewModelScope.launch {
         isPlaying.value = true
-        countDownTimer = object : CountDownTimer(timeLeft.value, countDownInterval) {
+        countDownTimer = object : CountDownTimer(timeLeft.longValue, countDownInterval) {
             override fun onTick(currentTimeLeft: Long) {
                 timerText.value = currentTimeLeft.timeFormat()
-                timeLeft.value = currentTimeLeft
+                timeLeft.longValue = currentTimeLeft
             }
 
             override fun onFinish() {
@@ -48,6 +49,6 @@ class CountDownTimerViewModel : ViewModel() {
         isPlaying.value = false
         countDownTimer?.cancel()
         timerText.value = initialTotalTimeInMillis.timeFormat()
-        timeLeft.value = initialTotalTimeInMillis
+        timeLeft.longValue = initialTotalTimeInMillis
     }
 }

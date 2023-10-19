@@ -13,8 +13,8 @@ import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Card
 import androidx.compose.material3.DismissValue
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
@@ -57,7 +57,7 @@ fun TutorialSwipeToDismissScreen() {
                             DismissValue.Default -> Color.LightGray
                             DismissValue.DismissedToEnd -> Color.Green
                             DismissValue.DismissedToStart -> Color.Red
-                        }
+                        }, label = "change color"
                     )
                     Box(
                         modifier = Modifier
@@ -84,7 +84,7 @@ fun TutorialSwipeToDismissScreen() {
                             headlineContent = { Text(animal) },
                             supportingContent = { Text("Swipe To Delete") }
                         )
-                        Divider(thickness = 5.dp, color = Color.Black)
+                        HorizontalDivider(thickness = 5.dp, color = Color.Black)
                     }
                 }
             )

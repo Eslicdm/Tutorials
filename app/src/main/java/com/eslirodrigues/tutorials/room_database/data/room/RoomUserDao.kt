@@ -1,6 +1,5 @@
 package com.eslirodrigues.tutorials.room_database.data.room
 
-import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.room.*
 import com.eslirodrigues.tutorials.room_database.data.model.RoomUser
 import kotlinx.coroutines.flow.Flow

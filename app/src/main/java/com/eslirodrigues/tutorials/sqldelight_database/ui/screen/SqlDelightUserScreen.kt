@@ -13,7 +13,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.eslirodrigues.tutorials.sqldelight_database.ui.viewmodel.SqlDelightViewModel
 import tutorialsqldelightdb.SqldelightUserEntity
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SqlDelightUserScreen(
     viewModel: SqlDelightViewModel = hiltViewModel()

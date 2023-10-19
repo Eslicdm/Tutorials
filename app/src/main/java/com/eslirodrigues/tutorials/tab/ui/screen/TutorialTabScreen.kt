@@ -36,7 +36,7 @@ fun TutorialTabScreen() {
         TutorialTabModel("Video", Icons.Default.Videocam),
     )
 
-    val pagerState = rememberPagerState()
+    val pagerState = rememberPagerState { tabItems.size }
     val scope = rememberCoroutineScope()
 
     Column {
@@ -50,7 +50,7 @@ fun TutorialTabScreen() {
                 )
             }
         }
-        HorizontalPager(pageCount = tabItems.size, state = pagerState) { currentPage ->
+        HorizontalPager(state = pagerState) { currentPage ->
             when(currentPage) {
                  0 -> { TutorialImageTab() }
                  1 -> { TutorialMusicTab() }

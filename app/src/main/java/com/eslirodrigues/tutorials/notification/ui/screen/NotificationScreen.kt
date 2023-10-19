@@ -19,7 +19,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.eslirodrigues.tutorials.notification.ui.components.TutorialNotificationButton
 import com.eslirodrigues.tutorials.notification.ui.viewmodel.NotificationViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NotificationScreen(viewModel: NotificationViewModel = hiltViewModel()) {
     var textAndTitleText by remember { mutableStateOf("") }

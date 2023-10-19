@@ -1,7 +1,6 @@
 package com.eslirodrigues.tutorials.slider.ui.screen
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -9,17 +8,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.VolumeMute
+import androidx.compose.material.icons.automirrored.filled.VolumeMute
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.RangeSlider
 import androidx.compose.material3.Slider
-import androidx.compose.material3.SliderDefaults
-import androidx.compose.material3.SliderPositions
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -42,13 +39,13 @@ fun TutorialSliderScreen() {
 
 @Composable
 fun TutorialSlider() {
-    var soundVolume by remember { mutableStateOf(0f) }
+    var soundVolume by remember { mutableFloatStateOf(0f) }
     var showUpdateValueDialog by remember { mutableStateOf(false) }
 
     Row(modifier = Modifier
         .fillMaxWidth()
         .padding(20.dp)) {
-        Icon(imageVector = Icons.Default.VolumeMute, contentDescription = "Volume")
+        Icon(imageVector = Icons.AutoMirrored.Filled.VolumeMute, contentDescription = "Volume")
         Column {
             Text(text = soundVolume.toInt().toString(), fontSize = 22.sp)
             Slider(
@@ -83,7 +80,7 @@ fun TutorialRangeSlider() {
     Row(modifier = Modifier
         .fillMaxWidth()
         .padding(20.dp)) {
-        Icon(imageVector = Icons.Default.VolumeMute, contentDescription = "Volume")
+        Icon(imageVector = Icons.AutoMirrored.Filled.VolumeMute, contentDescription = "Volume")
         Column {
             Text(text = soundVolume.toString(), fontSize = 22.sp)
             RangeSlider(

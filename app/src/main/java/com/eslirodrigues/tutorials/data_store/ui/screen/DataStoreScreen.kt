@@ -15,7 +15,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.eslirodrigues.tutorials.data_store.ui.viewmodel.DataStoreViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DataStoreScreen(viewModel: DataStoreViewModel = hiltViewModel()) {
     val name by viewModel.readName.collectAsStateWithLifecycle()

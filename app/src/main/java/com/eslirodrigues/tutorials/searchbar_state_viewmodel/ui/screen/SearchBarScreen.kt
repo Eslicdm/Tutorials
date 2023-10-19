@@ -10,6 +10,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
+import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,8 +30,8 @@ fun SearchBarScreen(searchBarViewModel: SearchBarViewModel = viewModel()) {
     var searchInputText by remember { mutableStateOf("") }
 
     Scaffold(topBar = {
-        SmallTopAppBar(
-            colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = MaterialTheme.colorScheme.primary),
+        TopAppBar(
+            colors = topAppBarColors(containerColor = MaterialTheme.colorScheme.primary),
             title = { Text(text = stringResource(id = string.app_name)) },
             actions = {
                 if (showSearchBar) {
@@ -94,5 +95,4 @@ fun SearchBarScreen(searchBarViewModel: SearchBarViewModel = viewModel()) {
             }
         }
     }
-
 }

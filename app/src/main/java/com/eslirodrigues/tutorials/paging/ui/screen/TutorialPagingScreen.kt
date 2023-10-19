@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
@@ -16,7 +17,6 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
-import androidx.paging.compose.items
 import coil.compose.SubcomposeAsyncImage
 import com.eslirodrigues.tutorials.R
 import com.eslirodrigues.tutorials.paging.data.model.PagingFood
@@ -34,7 +34,7 @@ fun TutorialPagingScreen(
         verticalArrangement = Arrangement.Center
     ) {
         LazyColumn {
-            items(items = foodItems) { item ->
+            items(items = foodItems.itemSnapshotList) { item ->
                 SubcomposeAsyncImage(
                     modifier = Modifier.size(300.dp),
                     contentScale = ContentScale.Crop,

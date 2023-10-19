@@ -1,6 +1,6 @@
 package com.eslirodrigues.tutorials.navigation_bar.ui.screen
 
-import androidx.compose.material3.ExperimentalMaterial3Api
+import android.annotation.SuppressLint
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.eslirodrigues.tutorials.navigation_bar.ui.components.TutorialNavigationBar
 
-@OptIn(ExperimentalMaterial3Api::class)
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun TutorialNavBarImageScreen(navController: NavController) {
     Scaffold(

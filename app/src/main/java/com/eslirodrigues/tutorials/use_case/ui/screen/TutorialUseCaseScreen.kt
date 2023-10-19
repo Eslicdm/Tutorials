@@ -12,8 +12,6 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.eslirodrigues.tutorials.use_case.ui.viewmodel.TutorialUseCaseViewModel
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.first
 
 @Composable
 fun TutorialUseCaseScreen(

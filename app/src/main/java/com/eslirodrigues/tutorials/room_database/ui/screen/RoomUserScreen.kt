@@ -12,7 +12,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.eslirodrigues.tutorials.room_database.data.model.RoomUser
 import com.eslirodrigues.tutorials.room_database.ui.viewmodel.RoomUserViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RoomUserScreen(
     viewModel: RoomUserViewModel = hiltViewModel()

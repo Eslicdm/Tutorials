@@ -25,7 +25,6 @@ data class ChipsModel(
     val trailingIcon: ImageVector? = null,
 )
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TutorialAssistChip() {
     val assistList = listOf(
@@ -227,7 +226,6 @@ fun TutorialInputChip() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TutorialSuggestionChip() {
     val suggestionList = listOf(

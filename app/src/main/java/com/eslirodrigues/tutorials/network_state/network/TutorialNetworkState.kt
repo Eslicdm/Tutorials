@@ -1,8 +1,8 @@
 package com.eslirodrigues.tutorials.network_state.network
 
 sealed interface TutorialNetworkState {
-    object Available : TutorialNetworkState
-    object Lost : TutorialNetworkState
-    object Losing : TutorialNetworkState
-    object Unavailable : TutorialNetworkState
+    data object Available : TutorialNetworkState
+    data object Lost : TutorialNetworkState
+    data object Losing : TutorialNetworkState
+    data object Unavailable : TutorialNetworkState
 }

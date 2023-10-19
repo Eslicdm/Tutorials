@@ -88,10 +88,9 @@ fun TutorialLazyColumn(animalList: List<Pair<String, Int>>) {
 @Composable
 fun TutorialLazyRow(animalList: List<Pair<String, Int>>) {
     val lazyListState = rememberLazyListState()
-    val scope = rememberCoroutineScope()
     val listMiddleItem = animalList.size / 2
 
-    scope.launch {
+    LaunchedEffect(Unit) {
         lazyListState.scrollToItem(listMiddleItem)
     }
 

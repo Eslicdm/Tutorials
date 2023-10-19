@@ -2,7 +2,6 @@ package com.eslirodrigues.tutorials.use_case.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.eslirodrigues.tutorials.room_database.ui.state.RoomUserState
 import com.eslirodrigues.tutorials.use_case.domain.TutorialGetListUseCase
 import com.eslirodrigues.tutorials.use_case.ui.state.TutorialUseCaseState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -11,7 +10,6 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch

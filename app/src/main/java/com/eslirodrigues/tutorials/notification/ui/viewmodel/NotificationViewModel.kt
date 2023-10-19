@@ -2,7 +2,7 @@ package com.eslirodrigues.tutorials.notification.ui.viewmodel
 
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eslirodrigues.tutorials.notification.notification.TutorialNotification
@@ -16,7 +16,7 @@ class NotificationViewModel @Inject constructor(
     private val notification: TutorialNotification
 ) : ViewModel() {
 
-    private val downloadProgress = mutableStateOf(0)
+    private val downloadProgress = mutableIntStateOf(0)
 
     fun showNotificationWithTextAndTitle(title: String, content: String) {
         notification.showNotificationWithTextAndTitle(title = title, content = content)
@@ -31,13 +31,13 @@ class NotificationViewModel @Inject constructor(
     }
 
     fun showNotificationWithProgressBar() = viewModelScope.launch {
-        while (downloadProgress.value < 100) {
+        while (downloadProgress.intValue < 100) {
             delay(500)
-            downloadProgress.value += 10
+            downloadProgress.intValue += 10
             notification.showNotificationWithProgressBar(
                 title = "Progress Bar Download",
-                content = "${downloadProgress.value}/100",
-                progress = downloadProgress.value,
+                content = "${downloadProgress.intValue}/100",
+                progress = downloadProgress.intValue,
                 maxProgress = 100
             )
         }

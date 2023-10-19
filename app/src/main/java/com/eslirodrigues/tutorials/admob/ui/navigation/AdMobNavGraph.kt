@@ -1,44 +1,45 @@
 package com.eslirodrigues.tutorials.admob.ui.navigation
 
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.lifecycle.whenCreated
+import androidx.compose.runtime.setValue
+import androidx.lifecycle.withCreated
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.eslirodrigues.tutorials.admob.ui.screen.AdScreen
 import com.eslirodrigues.tutorials.admob.ui.screen.AdSecondScreen
-import com.google.accompanist.navigation.animation.AnimatedNavHost
-import com.google.accompanist.navigation.animation.composable
-import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun AdMobNavGraph(showAd: () -> Unit) {
-    val navController = rememberAnimatedNavController()
-    var adCount by rememberSaveable { mutableStateOf(0) }
+    val navController = rememberNavController()
+    var adCount by rememberSaveable { mutableIntStateOf(0) }
 
-    AnimatedNavHost(navController = navController, startDestination = AdMobNavRoute.AdScreen.route) {
-        composableSlideHorizontally(route = AdMobNavRoute.AdScreen.route) {
-            AdScreen(navController = navController)
+    NavHost(navController = navController, startDestination = AdMobNavRoute.AdScreen.route) {
+        composableSlideHorizontallyAdMob(route = AdMobNavRoute.AdScreen.route) {
+            AdScreen { navController.navigate(AdMobNavRoute.AdSecondScreen.route) }
         }
-        composableSlideHorizontally(route = AdMobNavRoute.AdSecondScreen.route) {
+        composableSlideHorizontallyAdMob(route = AdMobNavRoute.AdSecondScreen.route) {
             val currentBackStackEntry = navController.currentBackStackEntry
              LaunchedEffect(Unit){
-                currentBackStackEntry?.whenCreated {
+                currentBackStackEntry?.withCreated {
                     if (adCount % 2 == 1) showAd()
                     adCount++
                 }
             }
-            AdSecondScreen(navController = navController)
+            AdSecondScreen { navController.popBackStack() }
         }
     }
 }
 
-@OptIn(ExperimentalAnimationApi::class)
-fun NavGraphBuilder.composableSlideHorizontally(
+fun NavGraphBuilder.composableSlideHorizontallyAdMob(
     route: String,
     duration: Int = 400, // 1000 - 400
     enterOffset: Int = 1000, // 300 - 1000

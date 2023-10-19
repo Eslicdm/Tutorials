@@ -1,5 +1,6 @@
 package com.eslirodrigues.tutorials.notification.notification
 
+import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -25,6 +26,7 @@ import com.eslirodrigues.tutorials.notification.ui.navigation.TutorialNotificati
 import com.eslirodrigues.tutorials.notification.ui.navigation.TutorialNotificationConstants.NOTIFICATION_URI
 import javax.inject.Inject
 
+@SuppressLint("MissingPermission")
 class TutorialNotification @Inject constructor(
     private val context: Context,
     private val notificationManagerCompat: NotificationManagerCompat
@@ -144,7 +146,7 @@ class TutorialNotification @Inject constructor(
             builder.setStyle(
                 NotificationCompat.BigPictureStyle()
                     .bigPicture(Icon.createWithResource(context, R.drawable.ic_image))
-                    .bigLargeIcon(null)
+//                    .bigLargeIcon(null)
             )
         }
 

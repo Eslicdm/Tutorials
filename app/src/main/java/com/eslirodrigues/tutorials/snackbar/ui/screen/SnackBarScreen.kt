@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -26,7 +26,6 @@ fun SnackBarScreen() {
 }
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BasicSnackbar() {
     var showSnackbar by remember { mutableStateOf(false) }
@@ -65,7 +64,6 @@ fun BasicSnackbar() {
 }
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun StateHostSnackBar() {
     val snackbarHostState = remember { SnackbarHostState() }
@@ -77,8 +75,8 @@ fun StateHostSnackBar() {
     }) {
         Button(onClick = {
             scope.launch {
-                val actionLabelString: String? = "Action"
-                val isActionLabelEmpty = actionLabelString.isNullOrEmpty()
+                val actionLabelString = "Action"
+                val isActionLabelEmpty = actionLabelString.isEmpty()
                 val snackbarResult = snackbarHostState.showSnackbar(
                     message = "Are you sure?",
                     actionLabel = actionLabelString,
@@ -104,7 +102,6 @@ fun StateHostSnackBar() {
 }
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CustomSnackbar() {
     val snackbarHostState = remember { SnackbarHostState() }
@@ -140,7 +137,7 @@ fun CustomSnackbar() {
                     snackBarData.dismiss()
 
                 }) {
-                    Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                    Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                 }
             }
         }

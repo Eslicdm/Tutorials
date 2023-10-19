@@ -11,26 +11,25 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TutorialBottomAppBarScreen() {
     Scaffold(
         bottomBar = {
             BottomAppBar(
                 actions = {
-                    IconButton(onClick = { /*TODO*/ }) {
+                    IconButton(onClick = {  }) {
                         Icon(Icons.Default.Search, contentDescription = "Search")
                     }
-                    IconButton(onClick = { /*TODO*/ }) {
+                    IconButton(onClick = {  }) {
                         Icon(Icons.Default.Mic, contentDescription = "Mic")
                     }
-                    IconButton(onClick = { /*TODO*/ }) {
+                    IconButton(onClick = {  }) {
                         Icon(Icons.Default.Share, contentDescription = "Share")
                     }
                 },
                 floatingActionButton = {
                     FloatingActionButton(
-                        onClick = { /*TODO*/ },
+                        onClick = {  },
                         elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 0.dp)
                     ) {
                         Icon(Icons.Default.Add, contentDescription = "Add")

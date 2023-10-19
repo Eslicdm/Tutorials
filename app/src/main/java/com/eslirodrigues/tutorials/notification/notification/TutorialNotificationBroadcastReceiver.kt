@@ -1,5 +1,6 @@
 package com.eslirodrigues.tutorials.notification.notification
 
+import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.app.RemoteInput
 import android.content.BroadcastReceiver
@@ -15,6 +16,7 @@ import com.eslirodrigues.tutorials.notification.ui.navigation.TutorialNotificati
 class TutorialNotificationBroadcastReceiver : BroadcastReceiver() {
 
     // setConversationTitle() for group messages
+    @SuppressLint("MissingPermission")
     override fun onReceive(context: Context?, intent: Intent?) {
         val requestCode = 3
         val notificationId = 3

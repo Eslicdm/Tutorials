@@ -14,7 +14,6 @@ import kotlinx.coroutines.launch
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavDrawerScreen(navController: NavController) {
     val drawerState = rememberDrawerState(DrawerValue.Closed)

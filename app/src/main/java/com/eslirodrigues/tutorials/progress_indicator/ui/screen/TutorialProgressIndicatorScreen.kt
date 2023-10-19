@@ -10,7 +10,7 @@ import androidx.compose.material3.ProgressIndicatorDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -20,10 +20,11 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun TutorialProgressIndicatorScreen() {
-    var downloadProgress by remember { mutableStateOf(0.1f) }
+    var downloadProgress by remember { mutableFloatStateOf(0.1f) }
     val animatedDownloadProgress by animateFloatAsState(
         targetValue = downloadProgress,
-        animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec
+        animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec,
+        label = "change progress"
     )
 
     LaunchedEffect(downloadProgress) {
@@ -39,6 +40,6 @@ fun TutorialProgressIndicatorScreen() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         CircularProgressIndicator()
-        LinearProgressIndicator(progress = animatedDownloadProgress)
+        LinearProgressIndicator(progress = { animatedDownloadProgress })
     }
 }

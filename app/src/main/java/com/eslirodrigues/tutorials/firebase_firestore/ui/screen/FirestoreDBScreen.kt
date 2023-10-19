@@ -14,7 +14,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.eslirodrigues.tutorials.firebase_firestore.data.model.FirestoreDBUser
 import com.eslirodrigues.tutorials.firebase_firestore.ui.viewmodel.FirestoreDBViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FirestoreDBScreen(
     viewModel: FirestoreDBViewModel = hiltViewModel()

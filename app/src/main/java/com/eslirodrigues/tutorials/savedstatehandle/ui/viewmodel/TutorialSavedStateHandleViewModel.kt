@@ -1,7 +1,6 @@
 package com.eslirodrigues.tutorials.savedstatehandle.ui.viewmodel
 
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

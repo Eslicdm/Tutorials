@@ -16,7 +16,6 @@ import com.eslirodrigues.tutorials.firebase_auth.ui.navigation.FirebaseAuthNavRo
 import com.eslirodrigues.tutorials.firebase_auth.ui.state.FirebaseLoginState
 import com.eslirodrigues.tutorials.firebase_auth.ui.viewmodel.FirebaseAuthViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FirebaseAuthSignUpScreen(
     navController: NavController,

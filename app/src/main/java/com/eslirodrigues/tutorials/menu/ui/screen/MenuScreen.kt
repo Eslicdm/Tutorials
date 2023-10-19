@@ -71,7 +71,7 @@ fun TutorialTopMenu() {
                         )
                     }
                 )
-                Divider()
+                HorizontalDivider()
                 DropdownMenuItem(
                     text = { Text("Share") },
                     onClick = { },
@@ -108,7 +108,7 @@ fun TutorialExposedMenu() {
                 ExposedDropdownMenuDefaults.TrailingIcon(expanded = showMenu)
             },
             colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors(
-                textColor = if (showMenu) Color.LightGray else Color.Black
+                focusedTextColor = if (showMenu) Color.LightGray else Color.Black
             )
         )
         ExposedDropdownMenu(
