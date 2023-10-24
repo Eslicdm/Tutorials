@@ -3,10 +3,8 @@ package com.eslirodrigues.tutorials
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.eslirodrigues.tutorials.animations.ui.screen.TutorialAnimatedVisibility
-import com.eslirodrigues.tutorials.annotated_string.ui.screen.TutorialAnnotatedStringScreen
-import com.eslirodrigues.tutorials.tooltip.ui.screen.TutorialToolTipScreen
 import com.eslirodrigues.tutorials.ui.theme.TutorialsTheme
+import com.eslirodrigues.tutorials.window_manager.ui.navigation.TutorialWindowManagerNavGraph
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,7 +14,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TutorialsTheme {
-                TutorialAnnotatedStringScreen()
+                TutorialWindowManagerNavGraph(this)
             }
         }
     }

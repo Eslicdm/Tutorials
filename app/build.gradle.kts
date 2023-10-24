@@ -48,7 +48,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.0"
+        kotlinCompilerExtensionVersion = "1.5.3"
     }
     packaging {
         resources {
@@ -90,6 +90,16 @@ dependencies {
 
     // Webkit
     implementation("androidx.webkit:webkit:1.8.0")
+
+    // Window Manager
+    implementation("androidx.window:window:1.1.0")
+
+    // Adaptive Layout
+    implementation("com.google.accompanist:accompanist-adaptive:0.27.0")
+
+    // Window Size Material 3
+    implementation("androidx.compose.material3:material3-window-size-class:1.1.2")
+
 
     // Ktor
     implementation("io.ktor:ktor-client-core:2.3.3")
