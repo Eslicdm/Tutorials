@@ -86,7 +86,14 @@ dependencies {
     androidTestImplementation("com.google.truth:truth:1.1.3")
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.2")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.4")
+
+    // Animation
+    implementation("androidx.compose.animation:animation-graphics-android:1.6.0-alpha08")
+    implementation("androidx.compose.animation:animation:1.6.0-alpha08")
+
+    // Lottie
+    implementation("com.airbnb.android:lottie-compose:6.1.0")
 
     // Webkit
     implementation("androidx.webkit:webkit:1.8.0")
