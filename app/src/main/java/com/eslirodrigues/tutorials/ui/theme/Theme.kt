@@ -10,15 +10,10 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
-import androidx.core.view.ViewCompat
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.eslirodrigues.tutorials.change_theme.datastore.TutorialThemeDataStore
-import com.eslirodrigues.tutorials.change_theme.ui.viewmodel.ChangeThemeViewModel
+import androidx.core.view.WindowCompat
 
 private val LightColors = lightColorScheme(
     primary = md_theme_light_primary,
@@ -83,13 +78,13 @@ private val DarkColors = darkColorScheme(
 
 @Composable
 fun TutorialsTheme(
-//    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
-    themeViewModel: ChangeThemeViewModel = hiltViewModel(),
+//    themeViewModel: ChangeThemeViewModel = hiltViewModel(),
     content: @Composable () -> Unit
 ) {
-    val darkTheme by themeViewModel.isDarkThemeEnabled.collectAsStateWithLifecycle()
+//    val darkTheme by themeViewModel.isDarkThemeEnabled.collectAsStateWithLifecycle()
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
@@ -101,8 +96,9 @@ fun TutorialsTheme(
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
-            (view.context as Activity).window.statusBarColor = colorScheme.primary.toArgb()
-            ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = darkTheme
+            val window = (view.context as Activity).window
+            window.statusBarColor = colorScheme.primary.toArgb()
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }
 
