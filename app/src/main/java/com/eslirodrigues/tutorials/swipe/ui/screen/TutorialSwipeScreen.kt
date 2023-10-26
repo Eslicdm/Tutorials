@@ -1,10 +1,16 @@
 package com.eslirodrigues.tutorials.swipe.ui.screen
 
-import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.AnchoredDraggableState
+import androidx.compose.foundation.gestures.DraggableAnchors
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.anchoredDraggable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
@@ -13,28 +19,39 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import kotlin.math.roundToInt
 
-@OptIn(ExperimentalMaterialApi::class)
+enum class DragValue { Start, Center, End }
+
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun TutorialSwipeScreen() {
+    val density = LocalDensity.current
     val screenSizeDp = LocalConfiguration.current.screenWidthDp.dp
-    val swipeableState = rememberSwipeableState(0)
-    val screenSizePx = with(LocalDensity.current) { screenSizeDp.toPx() }
-    val anchors = mapOf(0f to 0, -screenSizePx to 1, screenSizePx to 2)
-
+    val screenSizePx = with(density) { screenSizeDp.toPx() }
+    val anchors = remember {
+        DraggableAnchors {
+            DragValue.Start at 0f
+            DragValue.Center at screenSizePx / 2
+            DragValue.End at screenSizePx
+        }
+    }
+    val state = remember {
+        AnchoredDraggableState(
+            initialValue = DragValue.Start,
+            positionalThreshold = { distance -> distance * 0.3f },
+            velocityThreshold = {  with(density) { 100.dp.toPx() }  },
+            animationSpec = tween(),
+        )
+    }
+    SideEffect { state.updateAnchors(anchors) }
     Box(
-        modifier = Modifier
+        Modifier
             .fillMaxSize()
-            .swipeable(
-                state = swipeableState,
-                anchors = anchors,
-                thresholds = { _, _ -> FractionalThreshold(0.3f) },
-                orientation = Orientation.Vertical
-            )
+            .anchoredDraggable(state, Orientation.Vertical)
             .background(Color.LightGray)
     ) {
         Box(
             Modifier
-                .offset { IntOffset(0, swipeableState.offset.value.roundToInt()) } // x = 0 Vertical
+                .offset { IntOffset(x = 0, y = state.requireOffset().roundToInt()) } // x = 0 Horizontal
                 .size(screenSizeDp)
                 .background(Color.DarkGray)
         )

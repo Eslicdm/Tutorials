@@ -76,15 +76,15 @@ dependencies {
 
     // Test
     testImplementation("com.squareup.okhttp3:mockwebserver:4.10.0")
-    testImplementation("com.google.truth:truth:1.1.3")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.2")
+    testImplementation("com.google.truth:truth:1.1.5")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
     testImplementation("junit:junit:4.13.2")
-    testImplementation("io.mockk:mockk:1.13.3")
-    testImplementation("io.ktor:ktor-client-mock:2.3.3")
+    testImplementation("io.mockk:mockk:1.13.8")
+    testImplementation("io.ktor:ktor-client-mock:2.3.5")
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.4")
     androidTestImplementation("androidx.navigation:navigation-testing:2.7.4")
-    androidTestImplementation("com.google.truth:truth:1.1.3")
-    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.2")
+    androidTestImplementation("com.google.truth:truth:1.1.5")
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.4")
 
@@ -109,19 +109,19 @@ dependencies {
 
 
     // Ktor
-    implementation("io.ktor:ktor-client-core:2.3.3")
-    implementation("io.ktor:ktor-client-android:2.3.3")
-    implementation("io.ktor:ktor-client-content-negotiation:2.3.3")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.3")
+    implementation("io.ktor:ktor-client-core:2.3.5")
+    implementation("io.ktor:ktor-client-android:2.3.5")
+    implementation("io.ktor:ktor-client-content-negotiation:2.3.5")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.5")
 
     // Kotlin Serialization Json
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0-RC")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
 
     // Permissions
     implementation("com.google.accompanist:accompanist-permissions:0.28.0")
 
     // Coil
-    implementation("io.coil-kt:coil-compose:2.2.2")
+    implementation("io.coil-kt:coil-compose:2.4.0")
 
     // DataStore
     implementation("androidx.datastore:datastore-preferences:1.0.0")
@@ -134,11 +134,11 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     // OkHTTP
-    implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
 
     // Moshi
-    implementation("com.squareup.moshi:moshi-kotlin:1.12.0")
+    implementation("com.squareup.moshi:moshi-kotlin:1.15.0")
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
 
     // Room
@@ -148,8 +148,8 @@ dependencies {
     implementation("androidx.room:room-ktx:2.6.0")
 
     // SQL Delight
-    implementation("com.squareup.sqldelight:android-driver:1.5.4")
-    implementation("com.squareup.sqldelight:coroutines-extensions-jvm:1.5.2")
+    implementation("com.squareup.sqldelight:android-driver:1.5.5")
+    implementation("com.squareup.sqldelight:coroutines-extensions-jvm:1.5.5")
 
     // Firebase Firestore
     implementation("com.google.firebase:firebase-firestore-ktx:24.9.0")
@@ -177,13 +177,13 @@ dependencies {
     implementation("com.google.android.gms:play-services-ads:22.4.0")
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:2.47")
-    ksp("com.google.dagger:hilt-compiler:2.47")
+    implementation("com.google.dagger:hilt-android:2.48.1")
+    ksp("com.google.dagger:hilt-compiler:2.48.1")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
     ksp("androidx.hilt:hilt-compiler:1.0.0")
 
     // Koin
-    implementation("io.insert-koin:koin-androidx-compose:3.4.1")
+    implementation("io.insert-koin:koin-androidx-compose:3.5.0")
 
     // Extended Icons
     implementation("androidx.compose.material:material-icons-extended:1.5.4")
