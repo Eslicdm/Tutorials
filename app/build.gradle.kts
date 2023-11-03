@@ -9,6 +9,7 @@ plugins {
     id("com.squareup.sqldelight")
     id("com.google.devtools.ksp")
     kotlin("plugin.serialization") version "1.9.0"
+    id("com.apollographql.apollo3") version "3.8.2"
 }
 
 android {
@@ -117,6 +118,9 @@ dependencies {
     // Kotlin Serialization Json
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
 
+    // Apollo GraphQL
+    implementation("com.apollographql.apollo3:apollo-runtime:3.8.2")
+
     // Permissions
     implementation("com.google.accompanist:accompanist-permissions:0.28.0")
 
@@ -194,3 +198,8 @@ sqldelight {
         packageName = "com.eslirodrigues.tutorials"
     }
 }
+
+apollo {
+    packageName.set("com.eslirodrigues.tutorials")
+}
+// ./gradlew :app:downloadApolloSchema --endpoint='https://beta.pokeapi.co/graphql/v1beta' --schema=app/src/main/graphql/schema.graphqls
