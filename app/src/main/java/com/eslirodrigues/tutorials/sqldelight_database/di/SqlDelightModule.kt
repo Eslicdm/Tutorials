@@ -1,12 +1,12 @@
 package com.eslirodrigues.tutorials.sqldelight_database.di
 
 import android.content.Context
+import app.cash.sqldelight.db.SqlDriver
+import app.cash.sqldelight.driver.android.AndroidSqliteDriver
 import com.eslirodrigues.tutorials.TutorialSqlDelightDatabase
 import com.eslirodrigues.tutorials.sqldelight_database.data.repository.SqlDelightUserRepository
 import com.eslirodrigues.tutorials.sqldelight_database.data.repository.SqlDelightUserRepositoryImpl
 import com.eslirodrigues.tutorials.sqldelight_database.data.sqldelight.SqlDelightUserDao
-import com.squareup.sqldelight.android.AndroidSqliteDriver
-import com.squareup.sqldelight.db.SqlDriver
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

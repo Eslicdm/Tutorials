@@ -6,7 +6,7 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
-    id("com.squareup.sqldelight")
+    id("app.cash.sqldelight") version "2.0.0"
     id("com.google.devtools.ksp")
     kotlin("plugin.serialization") version "1.9.0"
     id("com.apollographql.apollo3") version "3.8.2"
@@ -49,7 +49,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.3"
+        kotlinCompilerExtensionVersion = "1.5.4"
     }
     packaging {
         resources {
@@ -83,7 +83,7 @@ dependencies {
     testImplementation("io.mockk:mockk:1.13.8")
     testImplementation("io.ktor:ktor-client-mock:2.3.5")
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.4")
-    androidTestImplementation("androidx.navigation:navigation-testing:2.7.4")
+    androidTestImplementation("androidx.navigation:navigation-testing:2.7.5")
     androidTestImplementation("com.google.truth:truth:1.1.5")
     androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -152,18 +152,18 @@ dependencies {
     implementation("androidx.room:room-ktx:2.6.0")
 
     // SQL Delight
-    implementation("com.squareup.sqldelight:android-driver:1.5.5")
-    implementation("com.squareup.sqldelight:coroutines-extensions-jvm:1.5.5")
+    implementation("app.cash.sqldelight:android-driver:2.0.0")
+    implementation("app.cash.sqldelight:coroutines-extensions-jvm:2.0.0")
 
     // Firebase Firestore
-    implementation("com.google.firebase:firebase-firestore-ktx:24.9.0")
+    implementation("com.google.firebase:firebase-firestore-ktx:24.9.1")
 
     // Firebase Crashlytics
-    implementation("com.google.firebase:firebase-crashlytics-ktx:18.5.0")
-    implementation("com.google.firebase:firebase-analytics-ktx:21.4.0")
+    implementation("com.google.firebase:firebase-crashlytics-ktx:18.5.1")
+    implementation("com.google.firebase:firebase-analytics-ktx:21.5.0")
 
     // Firebase Messaging
-    implementation("com.google.firebase:firebase-messaging-ktx:23.3.0")
+    implementation("com.google.firebase:firebase-messaging-ktx:23.3.1")
 
     // Firebase Auth
     implementation("com.google.firebase:firebase-auth-ktx:22.2.0")
@@ -172,19 +172,19 @@ dependencies {
     implementation("com.google.firebase:firebase-database-ktx:20.3.0")
 
     // Navigation
-    implementation("androidx.navigation:navigation-compose:2.7.4")
+    implementation("androidx.navigation:navigation-compose:2.7.5")
 
     // viewModel()
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
 
     // Admob
-    implementation("com.google.android.gms:play-services-ads:22.4.0")
+    implementation("com.google.android.gms:play-services-ads:22.5.0")
 
     // Hilt
     implementation("com.google.dagger:hilt-android:2.48.1")
     ksp("com.google.dagger:hilt-compiler:2.48.1")
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
-    ksp("androidx.hilt:hilt-compiler:1.0.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
+    ksp("androidx.hilt:hilt-compiler:1.1.0")
 
     // Koin
     implementation("io.insert-koin:koin-androidx-compose:3.5.0")
@@ -194,12 +194,16 @@ dependencies {
 }
 
 sqldelight {
-    database("TutorialSqlDelightDatabase") {
-        packageName = "com.eslirodrigues.tutorials"
+    databases {
+        create("TutorialSqlDelightDatabase") {
+            packageName.set("com.eslirodrigues.tutorials")
+        }
     }
 }
 
 apollo {
-    packageName.set("com.eslirodrigues.tutorials")
+    service("serviceName") {
+        packageName.set("com.eslirodrigues.tutorials")
+    }
 }
 // ./gradlew :app:downloadApolloSchema --endpoint='https://beta.pokeapi.co/graphql/v1beta' --schema=app/src/main/graphql/schema.graphqls

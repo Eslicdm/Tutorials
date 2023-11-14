@@ -1,8 +1,8 @@
 package com.eslirodrigues.tutorials.sqldelight_database.data.sqldelight
 
+import app.cash.sqldelight.coroutines.asFlow
+import app.cash.sqldelight.coroutines.mapToList
 import com.eslirodrigues.tutorials.TutorialSqlDelightDatabase
-import com.squareup.sqldelight.runtime.coroutines.asFlow
-import com.squareup.sqldelight.runtime.coroutines.mapToList
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
@@ -26,5 +26,6 @@ class SqlDelightUserDao @Inject constructor(
         queries.deleteUser(user.id)
     }
 
-    fun getAllUsers(): Flow<List<SqldelightUserEntity>> = queries.getAllUsers().asFlow().mapToList()
+    fun getAllUsers(): Flow<List<SqldelightUserEntity>> =
+        queries.getAllUsers().asFlow().mapToList(Dispatchers.IO)
 }
