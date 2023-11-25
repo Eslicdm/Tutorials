@@ -63,15 +63,15 @@ android {
 }
 
 dependencies {
-    implementation("androidx.compose.foundation:foundation:1.6.0-alpha08")
-    implementation("androidx.compose.material3:material3:1.2.0-alpha10")
-    implementation("androidx.compose.material:material:1.6.0-alpha08")
+    implementation("androidx.compose.foundation:foundation:1.6.0-beta01")
+    implementation("androidx.compose.material3:material3:1.2.0-alpha11")
+    implementation("androidx.compose.material:material:1.6.0-beta01")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.compose.ui:ui:1.5.4")
     implementation("androidx.compose.ui:ui-tooling-preview:1.5.4")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
-    implementation("androidx.activity:activity-compose:1.8.0")
+    implementation("androidx.activity:activity-compose:1.8.1")
     implementation("com.google.android.material:material:1.10.0")
     debugImplementation("androidx.compose.ui:ui-tooling:1.5.4")
 
@@ -90,8 +90,8 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.4")
 
     // Animation
-    implementation("androidx.compose.animation:animation-graphics-android:1.6.0-alpha08")
-    implementation("androidx.compose.animation:animation:1.6.0-alpha08")
+    implementation("androidx.compose.animation:animation-graphics-android:1.6.0-beta01")
+    implementation("androidx.compose.animation:animation:1.6.0-beta01")
 
     // Lottie
     implementation("com.airbnb.android:lottie-compose:6.1.0")
@@ -100,14 +100,13 @@ dependencies {
     implementation("androidx.webkit:webkit:1.8.0")
 
     // Window Manager
-    implementation("androidx.window:window:1.1.0")
+    implementation("androidx.window:window:1.2.0")
 
     // Adaptive Layout
     implementation("com.google.accompanist:accompanist-adaptive:0.27.0")
 
     // Window Size Material 3
     implementation("androidx.compose.material3:material3-window-size-class:1.1.2")
-
 
     // Ktor
     implementation("io.ktor:ktor-client-core:2.3.5")
@@ -159,14 +158,14 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore-ktx:24.9.1")
 
     // Firebase Crashlytics
-    implementation("com.google.firebase:firebase-crashlytics-ktx:18.5.1")
+    implementation("com.google.firebase:firebase-crashlytics-ktx:18.6.0")
     implementation("com.google.firebase:firebase-analytics-ktx:21.5.0")
 
     // Firebase Messaging
     implementation("com.google.firebase:firebase-messaging-ktx:23.3.1")
 
     // Firebase Auth
-    implementation("com.google.firebase:firebase-auth-ktx:22.2.0")
+    implementation("com.google.firebase:firebase-auth-ktx:22.3.0")
 
     // Firebase RealtimeDB
     implementation("com.google.firebase:firebase-database-ktx:20.3.0")
