@@ -68,7 +68,6 @@ fun TutorialAssistChip() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TutorialFilterChip() {
     val filterList = listOf(
@@ -180,7 +179,6 @@ fun ChipWithSubItems(chipLabel: String, chipItems: List<String>) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TutorialInputChip() {
     val inputList = listOf(

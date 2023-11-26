@@ -1,7 +1,5 @@
 package com.eslirodrigues.tutorials.room_database.ui.viewmodel
 
-import android.content.Context
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eslirodrigues.tutorials.room_database.data.RoomResult
@@ -9,15 +7,16 @@ import com.eslirodrigues.tutorials.room_database.data.model.RoomUser
 import com.eslirodrigues.tutorials.room_database.data.repository.RoomUserRepository
 import com.eslirodrigues.tutorials.room_database.ui.state.RoomUserState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class RoomUserViewModel @Inject constructor(
     private val repository: RoomUserRepository,
-//    @ApplicationContext private val context: Context
 ) : ViewModel() {
 
     private val _userState = MutableStateFlow(RoomUserState())
@@ -30,42 +29,27 @@ class RoomUserViewModel @Inject constructor(
     fun addUser(user: RoomUser) = viewModelScope.launch {
         repository.addUser(user).collect { result ->
             when (result) {
-                is RoomResult.Success -> {
-//                    Toast.makeText(context, result.data, Toast.LENGTH_SHORT).show()
-                }
-                is RoomResult.Error -> {
-//                    Toast.makeText(context, result.exception.message, Toast.LENGTH_SHORT).show()
-                }
-                is RoomResult.Loading -> {
-                }
+                is RoomResult.Success -> {}
+                is RoomResult.Error -> {}
+                is RoomResult.Loading -> {}
             }
         }
     }
     fun updateUser(user: RoomUser) = viewModelScope.launch {
         repository.updateUser(user).collect { result ->
             when (result) {
-                is RoomResult.Success -> {
-//                    Toast.makeText(context, result.data, Toast.LENGTH_SHORT).show()
-                }
-                is RoomResult.Error -> {
-//                    Toast.makeText(context, result.exception.message, Toast.LENGTH_SHORT).show()
-                }
-                is RoomResult.Loading -> {
-                }
+                is RoomResult.Success -> {}
+                is RoomResult.Error -> {}
+                is RoomResult.Loading -> {}
             }
         }
     }
     fun deleteUser(user: RoomUser) = viewModelScope.launch {
         repository.deleteUser(user).collect { result ->
             when (result) {
-                is RoomResult.Success -> {
-//                    Toast.makeText(context, result.data, Toast.LENGTH_SHORT).show()
-                }
-                is RoomResult.Error -> {
-//                    Toast.makeText(context, result.exception.message, Toast.LENGTH_SHORT).show()
-                }
-                is RoomResult.Loading -> {
-                }
+                is RoomResult.Success -> {}
+                is RoomResult.Error -> {}
+                is RoomResult.Loading -> {}
             }
         }
     }

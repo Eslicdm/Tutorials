@@ -26,7 +26,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.eslirodrigues.tutorials.R
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TutorialCardScreen() {
     val columnScrollableState = rememberScrollState()

@@ -36,6 +36,7 @@ object RoomModule {
     @Singleton
     @Provides
     fun provideRoomRepository(
-        roomUserDao: RoomUserDao
-    ) : RoomUserRepository = RoomUserRepositoryImpl(roomUserDao)
+        roomUserDao: RoomUserDao,
+        @ApplicationContext context: Context
+    ) : RoomUserRepository = RoomUserRepositoryImpl(roomUserDao, context)
 }
