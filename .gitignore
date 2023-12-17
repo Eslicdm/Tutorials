@@ -1,6 +1,8 @@
 *.iml
 .gradle
 /local.properties
+/.idea/androidTestResultsUserPreferences.xml
+/.idea/deploymentTargetDropDown.xml
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml

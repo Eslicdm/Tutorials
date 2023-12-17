@@ -49,7 +49,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.4"
+        kotlinCompilerExtensionVersion = "1.5.5"
     }
     packaging {
         resources {
@@ -63,9 +63,9 @@ android {
 }
 
 dependencies {
-    implementation("androidx.compose.foundation:foundation:1.6.0-beta01")
-    implementation("androidx.compose.material3:material3:1.2.0-alpha11")
-    implementation("androidx.compose.material:material:1.6.0-beta01")
+    implementation("androidx.compose.foundation:foundation:1.6.0-beta02")
+    implementation("androidx.compose.material3:material3:1.2.0-alpha12")
+    implementation("androidx.compose.material:material:1.6.0-beta02")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.compose.ui:ui:1.5.4")
     implementation("androidx.compose.ui:ui-tooling-preview:1.5.4")
@@ -90,14 +90,14 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.4")
 
     // Animation
-    implementation("androidx.compose.animation:animation-graphics-android:1.6.0-beta01")
-    implementation("androidx.compose.animation:animation:1.6.0-beta01")
+    implementation("androidx.compose.animation:animation-graphics-android:1.6.0-beta02")
+    implementation("androidx.compose.animation:animation:1.6.0-beta02")
 
     // Lottie
     implementation("com.airbnb.android:lottie-compose:6.1.0")
 
     // Webkit
-    implementation("androidx.webkit:webkit:1.8.0")
+    implementation("androidx.webkit:webkit:1.9.0")
 
     // Window Manager
     implementation("androidx.window:window:1.2.0")
@@ -145,10 +145,10 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
 
     // Room
-    implementation("androidx.room:room-runtime:2.6.0")
-    ksp("androidx.room:room-compiler:2.6.0")
-    annotationProcessor("androidx.room:room-compiler:2.6.0")
-    implementation("androidx.room:room-ktx:2.6.0")
+    implementation("androidx.room:room-runtime:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
 
     // SQL Delight
     implementation("app.cash.sqldelight:android-driver:2.0.0")
