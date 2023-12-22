@@ -63,6 +63,9 @@ android {
 }
 
 dependencies {
+    // Modules
+    implementation(project(":image-feature:coil"))
+
     // Core
     implementation(libs.bundles.compose.ui.material.foundation.core.lifecycle.activity)
     debugImplementation(libs.compose.ui.tooling)
