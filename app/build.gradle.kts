@@ -1,24 +1,24 @@
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("com.google.dagger.hilt.android")
-    id("com.google.gms.google-services")
-    id("com.google.firebase.crashlytics")
-    id("app.cash.sqldelight") version "2.0.0"
-    id("com.google.devtools.ksp")
-    kotlin("plugin.serialization") version "1.9.0"
-    id("com.apollographql.apollo3") version "3.8.2"
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.jetbrains.kotlin.android)
+    id(libs.plugins.dagger.hilt.android.get().pluginId)
+    id(libs.plugins.gms.google.services.get().pluginId)
+    id(libs.plugins.firebase.crashlytics.get().pluginId)
+    alias(libs.plugins.sqldelight)
+    alias(libs.plugins.devtools.ksp)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.apollo.graphql)
 }
 
 android {
-    compileSdk = 34
+    compileSdk = libs.versions.compile.target.sdk.get().toInt()
 
     defaultConfig {
         applicationId = "com.eslirodrigues.tutorials"
-        minSdk = 21
-        targetSdk = 34
+        minSdk = libs.versions.min.sdk.get().toInt()
+        targetSdk = libs.versions.compile.target.sdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
 
@@ -43,13 +43,13 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = libs.versions.java.get()
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.5"
+        kotlinCompilerExtensionVersion = libs.versions.compose.asProvider().get()
     }
     packaging {
         resources {
@@ -63,133 +63,89 @@ android {
 }
 
 dependencies {
-    implementation("androidx.compose.foundation:foundation:1.6.0-beta02")
-    implementation("androidx.compose.material3:material3:1.2.0-alpha12")
-    implementation("androidx.compose.material:material:1.6.0-beta02")
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.compose.ui:ui:1.5.4")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.5.4")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
-    implementation("androidx.activity:activity-compose:1.8.1")
-    implementation("com.google.android.material:material:1.10.0")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.5.4")
+    // Core
+    implementation(libs.bundles.compose.ui.material.foundation.core.lifecycle.activity)
+    debugImplementation(libs.compose.ui.tooling)
 
     // Test
-    testImplementation("com.squareup.okhttp3:mockwebserver:4.10.0")
-    testImplementation("com.google.truth:truth:1.1.5")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
-    testImplementation("junit:junit:4.13.2")
-    testImplementation("io.mockk:mockk:1.13.8")
-    testImplementation("io.ktor:ktor-client-mock:2.3.5")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.4")
-    androidTestImplementation("androidx.navigation:navigation-testing:2.7.5")
-    androidTestImplementation("com.google.truth:truth:1.1.5")
-    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.5.4")
+    testImplementation(libs.bundles.test)
+    debugImplementation(libs.compose.ui.test.manifest)
+    androidTestImplementation(libs.bundles.androidTest)
 
     // Animation
-    implementation("androidx.compose.animation:animation-graphics-android:1.6.0-beta02")
-    implementation("androidx.compose.animation:animation:1.6.0-beta02")
+    implementation(libs.bundles.compose.animation)
 
     // Lottie
-    implementation("com.airbnb.android:lottie-compose:6.1.0")
+    implementation(libs.lottie.compose)
 
     // Webkit
-    implementation("androidx.webkit:webkit:1.9.0")
+    implementation(libs.webkit)
 
     // Window Manager
-    implementation("androidx.window:window:1.2.0")
-
-    // Adaptive Layout
-    implementation("com.google.accompanist:accompanist-adaptive:0.27.0")
+    implementation(libs.window)
 
     // Window Size Material 3
-    implementation("androidx.compose.material3:material3-window-size-class:1.1.2")
+    implementation(libs.material3.window.size)
+
+    // Accompanist - Permissions, Adaptive Layout
+    implementation(libs.bundles.accompanist)
 
     // Ktor
-    implementation("io.ktor:ktor-client-core:2.3.5")
-    implementation("io.ktor:ktor-client-android:2.3.5")
-    implementation("io.ktor:ktor-client-content-negotiation:2.3.5")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.5")
+    implementation(libs.bundles.ktor)
 
     // Kotlin Serialization Json
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+    implementation(libs.kotlinx.serialization.json)
 
     // Apollo GraphQL
-    implementation("com.apollographql.apollo3:apollo-runtime:3.8.2")
-
-    // Permissions
-    implementation("com.google.accompanist:accompanist-permissions:0.28.0")
+    implementation(libs.apollo.graphql.runtime)
 
     // Coil
-    implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation(libs.coil.compose)
 
-    // DataStore
-    implementation("androidx.datastore:datastore-preferences:1.0.0")
+    // DataStore Preferences
+    implementation(libs.datastore.preferences)
 
     // Paging
-    implementation("androidx.paging:paging-compose:3.2.1")
+    implementation(libs.paging.compose)
 
     // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(libs.bundles.retrofit)
 
     // OkHTTP
-    implementation("com.squareup.okhttp3:okhttp:4.11.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+    implementation(libs.bundles.okhttp)
 
     // Moshi
-    implementation("com.squareup.moshi:moshi-kotlin:1.15.0")
-    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+    implementation(libs.bundles.moshi)
 
     // Room
-    implementation("androidx.room:room-runtime:2.6.1")
-    ksp("androidx.room:room-compiler:2.6.1")
-    annotationProcessor("androidx.room:room-compiler:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1")
+    implementation(libs.bundles.room)
+    ksp(libs.room.compiler)
+    annotationProcessor(libs.room.compiler)
 
     // SQL Delight
-    implementation("app.cash.sqldelight:android-driver:2.0.0")
-    implementation("app.cash.sqldelight:coroutines-extensions-jvm:2.0.0")
+    implementation(libs.bundles.sqldelight)
 
-    // Firebase Firestore
-    implementation("com.google.firebase:firebase-firestore-ktx:24.9.1")
-
-    // Firebase Crashlytics
-    implementation("com.google.firebase:firebase-crashlytics-ktx:18.6.0")
-    implementation("com.google.firebase:firebase-analytics-ktx:21.5.0")
-
-    // Firebase Messaging
-    implementation("com.google.firebase:firebase-messaging-ktx:23.3.1")
-
-    // Firebase Auth
-    implementation("com.google.firebase:firebase-auth-ktx:22.3.0")
-
-    // Firebase RealtimeDB
-    implementation("com.google.firebase:firebase-database-ktx:20.3.0")
+    // Firebase - Firestore, Crashlytics, Messaging, Auth, RealtimeDB
+    implementation(libs.bundles.firebase)
 
     // Navigation
-    implementation("androidx.navigation:navigation-compose:2.7.5")
+    implementation(libs.androidx.navigation.compose)
 
     // viewModel()
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 
     // Admob
-    implementation("com.google.android.gms:play-services-ads:22.5.0")
+    implementation(libs.admob)
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:2.48.1")
-    ksp("com.google.dagger:hilt-compiler:2.48.1")
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
-    ksp("androidx.hilt:hilt-compiler:1.1.0")
+    implementation(libs.bundles.hilt)
+    ksp(libs.bundles.hilt.compiler)
 
     // Koin
-    implementation("io.insert-koin:koin-androidx-compose:3.5.0")
+    implementation(libs.koin.androidx.compose)
 
     // Extended Icons
-    implementation("androidx.compose.material:material-icons-extended:1.5.4")
+    implementation(libs.androidx.material.icons.extended)
 }
 
 sqldelight {

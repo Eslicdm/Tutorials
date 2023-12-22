@@ -1,0 +1,306 @@
+[versions]
+# Plugins
+android-gradle = "8.2.0"
+kotlin = "1.9.21"
+compose = "1.5.7"
+compile-target-sdk = "34"
+min-sdk = "21"
+java = "17"
+ksp-plugin = "1.9.10-1.0.13"
+gms-google-services = "4.4.0"
+firebase-crashlytics-gradle = "2.9.9"
+kotlin-serialization-plugin = "1.9.0"
+graphql-plugin = "3.8.2"
+sqldelight-driver-coroutine-plugin = "2.0.1"
+
+# Core
+compose-foundation = "1.6.0-beta03"
+compose-material3 = "1.2.0-beta01"
+compose-material = "1.6.0-beta03"
+core-ktx = "1.12.0"
+compose-ui = "1.5.4"
+compose-ui-tooling = "1.5.4"
+compose-ui-tooling-preview = "1.5.4"
+lifecycle-runtime-ktx = "2.6.2"
+lifecycle-runtime-compose = "2.6.2"
+activity-compose = "1.8.2"
+
+# Test
+mockwebserver = "4.10.0"
+truth = "1.1.5"
+kotlinx-coroutines-test = "1.7.3"
+junit = "4.13.2"
+mockk = "1.13.8"
+ktor-client-mock = "2.3.5"
+compose-ui-test-manifest = "1.5.4"
+navigation-testing = "2.7.6"
+espresso-core = "3.5.1"
+compose-ui-test-junit4 = "1.5.4"
+
+# Animation
+compose-animation = "1.6.0-beta03"
+animation-graphics-android = "1.6.0-beta03"
+
+# Lottie
+lottie-compose = "6.1.0"
+
+# Webkit
+webkit = "1.9.0"
+
+# Window Manager
+window = "1.2.0"
+
+# Window Size Material 3
+material3-window-size = "1.1.2"
+
+# Accompanist - Permissions, Adaptive Layout
+accompanist-adaptive = "0.27.0"
+accompanist-permissions = "0.28.0"
+
+# Ktor
+ktor = "2.3.5"
+
+# Kotlin Serialization Json
+kotlinx-serialization-json = "1.6.0"
+
+# Apollo GraphQL
+apollo-graphql-runtime = "3.8.2"
+
+# Coil
+coil-compose = "2.4.0"
+
+# DataStore Preferences
+datastore-preferences = "1.0.0"
+
+# Paging
+paging-compose = "3.2.1"
+
+# Retrofit
+retrofit = "2.9.0"
+
+# OkHTTP
+okhttp = "4.11.0"
+okhttp-logging-interceptor = "4.10.0"
+
+# Moshi
+moshi-kotlin = "1.15.0"
+moshi-converter-retrofit = "2.9.0"
+
+# Room
+room = "2.6.1"
+
+# Firebase
+# Firestore
+firebase-firestore-ktx = "24.10.0"
+# Crashlytics
+firebase-crashlytics-ktx = "18.6.0"
+firebase-analytics-ktx = "21.5.0"
+# Messaging
+firebase-messaging-ktx = "23.4.0"
+# Auth
+firebase-auth-ktx = "22.3.0"
+# RealTime
+firebase-realtime-database-ktx = "20.3.0"
+
+# Navigation
+androidx-navigation-compose = "2.7.6"
+
+# viewModel()
+androidx-lifecycle-viewmodel-compose = "2.6.2"
+
+# Admob
+admob = "22.6.0"
+
+# Hilt
+dagger-hilt-android-compile-gradle-plugin = "2.48.1"
+hilt-compiler-navigation-compose = "1.1.0"
+
+# Koin
+koin-androidx-compose = "3.5.0"
+
+# Extended Icons
+material-icons-extended = "1.5.4"
+androidx-test-ext-junit = "1.1.5"
+appcompat = "1.6.1"
+material = "1.11.0"
+org-jetbrains-kotlin-jvm = "1.9.21"
+
+[libraries]
+# Project Level Gradle
+dagger-hilt-gradle = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "dagger-hilt-android-compile-gradle-plugin" }
+gradle-build-tools = { module = "com.android.tools.build:gradle", version.ref = "android-gradle" }
+gms-google-services = { module = "com.google.gms:google-services", version.ref = "gms-google-services" }
+firebase-crashlytics-gradle = { module = "com.google.firebase:firebase-crashlytics-gradle", version.ref = "firebase-crashlytics-gradle" }
+
+# Core
+compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose-foundation" }
+compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+compose-material = { module = "androidx.compose.material:material", version.ref = "compose-material" }
+core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-ui" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-ui-tooling" } # debugImplementation
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ui-tooling-preview" }
+lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle-runtime-compose" }
+activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
+
+# Test
+mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "mockwebserver" }
+truth = { module = "com.google.truth:truth", version.ref = "truth" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test" }
+junit = { module = "junit:junit", version.ref = "junit" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor-client-mock" }
+compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose-ui-test-manifest" } # debugImplementation
+navigation-testing = { module = "androidx.navigation:navigation-testing", version.ref = "navigation-testing" }
+espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core" }
+compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose-ui-test-junit4" }
+
+# Animation
+animation-graphics-android = { module = "androidx.compose.animation:animation-graphics-android", version.ref = "animation-graphics-android" }
+compose-animation = { module = "androidx.compose.animation:animation", version.ref = "compose-animation" }
+
+# Lottie
+lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottie-compose" }
+
+# Webkit
+webkit = { module = "androidx.webkit:webkit", version.ref = "webkit" }
+
+# Window Manager
+window = { module = "androidx.window:window", version.ref = "window" }
+
+# Window Size Material 3
+material3-window-size = { module = "androidx.compose.material3:material3-window-size-class", version.ref = "material3-window-size" }
+
+# Accompanist - Permissions, Adaptive Layout
+accompanist-adaptive = { module = "com.google.accompanist:accompanist-adaptive", version.ref = "accompanist-adaptive" }
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist-permissions" }
+
+# Ktor
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+
+# Kotlin Serialization Json
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
+
+# Apollo GraphQL
+apollo-graphql-runtime = { module = "com.apollographql.apollo3:apollo-runtime", version.ref = "apollo-graphql-runtime" }
+
+# Coil
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose" }
+
+# DataStore Preferences
+datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore-preferences" }
+
+# Paging
+paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging-compose" }
+
+# Retrofit
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+
+# OkHTTP
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+okhttp-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp-logging-interceptor" }
+
+# Moshi
+moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi-kotlin" }
+moshi-converter-retrofit = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "moshi-converter-retrofit" }
+
+# Room
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" } # ksp - annotationProcessor
+
+# SQLDelight
+sqldelight-android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight-driver-coroutine-plugin" }
+sqldelight-coroutines-extensions-jvm = { module = "app.cash.sqldelight:coroutines-extensions-jvm", version.ref = "sqldelight-driver-coroutine-plugin" }
+
+# Firebase
+# Firestore
+firebase-firestore-ktx = { module = "com.google.firebase:firebase-firestore-ktx", version.ref = "firebase-firestore-ktx" }
+# Crashlytics
+firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx", version.ref = "firebase-crashlytics-ktx" }
+firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx", version.ref = "firebase-analytics-ktx" }
+# Messaging
+firebase-messaging-ktx = { module = "com.google.firebase:firebase-messaging-ktx", version.ref = "firebase-messaging-ktx" }
+# Auth
+firebase-auth-ktx = { module = "com.google.firebase:firebase-auth-ktx", version.ref = "firebase-auth-ktx" }
+# RealtimeDB
+firebase-realtime-database-ktx = { module = "com.google.firebase:firebase-database-ktx", version.ref = "firebase-realtime-database-ktx" }
+
+# Navigation
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation-compose" }
+
+# viewModel()
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle-runtime-ktx" }
+
+# Admob
+admob = { module = "com.google.android.gms:play-services-ads", version.ref = "admob" }
+
+# Hilt
+dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagger-hilt-android-compile-gradle-plugin" }
+dagger-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "dagger-hilt-android-compile-gradle-plugin" }
+hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-compiler-navigation-compose" }
+hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hilt-compiler-navigation-compose" } # ksp
+
+# Koin
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin-androidx-compose" }
+
+# Extended Icons
+androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "material-icons-extended" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+[bundles]
+project-level-gradle = [ "dagger-hilt-gradle", "gradle-build-tools", "gms-google-services", "firebase-crashlytics-gradle" ]
+hilt = [ "dagger-hilt-android", "hilt-navigation-compose"]
+hilt-compiler = [ "dagger-hilt-compiler", "hilt-compiler"]
+compose-ui-material-foundation-core-lifecycle-activity = [ "compose-foundation", "compose-material3", "compose-material",
+    "core-ktx", "compose-ui", "compose-ui-tooling-preview", "lifecycle-runtime-ktx", "lifecycle-runtime-compose", "activity-compose"
+]
+test = [ "mockwebserver", "truth", "kotlinx-coroutines-test", "junit", "mockk", "ktor-client-mock" ]
+androidTest = [ "navigation-testing", "truth", "kotlinx-coroutines-test", "espresso-core", "compose-ui-test-junit4" ]
+compose-animation = [ "animation-graphics-android", "compose-animation" ]
+accompanist = [ "accompanist-adaptive", "accompanist-permissions" ]
+ktor = [ "ktor-client-core", "ktor-client-android", "ktor-client-content-negotiation", "ktor-serialization-kotlinx-json" ]
+retrofit = [ "retrofit", "retrofit-converter-gson" ]
+okhttp = [ "okhttp", "okhttp-logging-interceptor" ]
+moshi = [ "moshi-kotlin", "moshi-converter-retrofit" ]
+room = [ "room-runtime", "room-ktx"]
+sqldelight = [ "sqldelight-android-driver", "sqldelight-coroutines-extensions-jvm"]
+firebase = [ "firebase-firestore-ktx", "firebase-crashlytics-ktx", "firebase-analytics-ktx",
+    "firebase-messaging-ktx", "firebase-auth-ktx", "firebase-realtime-database-ktx"
+]
+
+[plugins]
+# Core
+android-application = { id = "com.android.application", version.ref = "android-gradle" }
+android-library = { id = "com.android.library", version.ref = "android-gradle" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+# Hilt
+dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "dagger-hilt-android-compile-gradle-plugin"}
+
+# Google GMS Services
+gms-google-services = { id = "com.google.gms.google-services", version.ref = "gms-google-services"}
+
+# Firebase Crashlytics
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics-gradle"}
+
+# SQLDelight
+sqldelight= { id = "app.cash.sqldelight", version.ref = "sqldelight-driver-coroutine-plugin" }
+
+# KSP
+devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp-plugin" }
+
+# Kotlin Serialization
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-serialization-plugin"}
+
+# Apollo GraphQL
+apollo-graphql = { id = "com.apollographql.apollo3", version.ref = "graphql-plugin" }
+org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
+
