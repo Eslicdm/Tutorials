@@ -12,15 +12,15 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Card
-import androidx.compose.material3.DismissValue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
-import androidx.compose.material3.SwipeToDismiss
+import androidx.compose.material3.SwipeToDismissBox
+import androidx.compose.material3.SwipeToDismissValue
 import androidx.compose.material3.Text
-import androidx.compose.material3.rememberDismissState
+import androidx.compose.material3.rememberSwipeToDismissState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
@@ -40,23 +40,23 @@ fun TutorialSwipeToDismissScreen() {
 
     LazyColumn {
         items(items = animalList, key = { name -> name }) { animal ->
-            val dismissState = rememberDismissState(
-                initialValue = DismissValue.Default,
-//                confirmValueChange = { dismissValue ->
-//                    if (dismissValue == DismissValue.DismissedToStart) animalList.remove(animal)
-//                    true
-//                },
+            val dismissState = rememberSwipeToDismissState(
+                initialValue = SwipeToDismissValue.Settled,
+                confirmValueChange = {dismissValue ->
+//                    if (dismissValue == SwipeToDismissValue.EndToStart) animalList.remove(animal)
+                    true
+                },
                 positionalThreshold = { swipeActivationFloat -> swipeActivationFloat / 3 }
             )
-            SwipeToDismiss(
+            SwipeToDismissBox(
                 modifier = Modifier.animateItemPlacement(),
                 state = dismissState,
-                background = {
+                backgroundContent = {
                     val color by animateColorAsState(
                         when (dismissState.targetValue) {
-                            DismissValue.Default -> Color.LightGray
-                            DismissValue.DismissedToEnd -> Color.Green
-                            DismissValue.DismissedToStart -> Color.Red
+                            SwipeToDismissValue.Settled -> Color.LightGray
+                            SwipeToDismissValue.StartToEnd -> Color.Green
+                            SwipeToDismissValue.EndToStart -> Color.Red
                         }, label = "change color"
                     )
                     Box(
@@ -69,16 +69,16 @@ fun TutorialSwipeToDismissScreen() {
                             IconButton(onClick = { scope.launch { dismissState.reset() } }) {
                                 Icon(Icons.Default.Refresh, contentDescription = "Refresh")
                             }
-                            if (dismissState.targetValue == DismissValue.DismissedToStart)
-                                IconButton(onClick = {
-                                    animalList.remove(animal)
-                                }) {
+                            if (dismissState.targetValue == SwipeToDismissValue.EndToStart)
+                                IconButton(onClick = { animalList.remove(animal) }) {
                                     Icon(Icons.Default.Delete, contentDescription = "Delete")
                                 }
                         }
                     }
                 },
-                dismissContent = {
+                enableDismissFromStartToEnd = true,
+                enableDismissFromEndToStart = true,
+                content = {
                     Card {
                         ListItem(
                             headlineContent = { Text(animal) },
