@@ -1,8 +1,8 @@
 [versions]
 # Plugins
-android-gradle = "8.2.0"
-kotlin = "1.9.21"
-compose = "1.5.7"
+android-gradle = "8.2.1"
+kotlin = "1.9.22"
+compose = "1.5.8"
 compile-target-sdk = "34"
 min-sdk = "21"
 java = "17"
@@ -302,5 +302,4 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 
 # Apollo GraphQL
 apollo-graphql = { id = "com.apollographql.apollo3", version.ref = "graphql-plugin" }
-org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
 
