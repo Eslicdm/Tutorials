@@ -149,6 +149,9 @@ dependencies {
 
     // Extended Icons
     implementation(libs.androidx.material.icons.extended)
+
+    // Glance
+    implementation(libs.bundles.glance)
 }
 
 sqldelight {

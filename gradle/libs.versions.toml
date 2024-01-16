@@ -120,10 +120,9 @@ koin-androidx-compose = "3.5.0"
 
 # Extended Icons
 material-icons-extended = "1.5.4"
-androidx-test-ext-junit = "1.1.5"
-appcompat = "1.6.1"
-material = "1.11.0"
-org-jetbrains-kotlin-jvm = "1.9.21"
+
+# Glance
+glance = "1.0.0"
 
 [libraries]
 # Project Level Gradle
@@ -251,9 +250,11 @@ koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", versi
 
 # Extended Icons
 androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "material-icons-extended" }
-androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+# Glance
+glance-appwidget = { module = "androidx.glance:glance-appwidget", version.ref = "glance" }
+glance-material = { module = "androidx.glance:glance-material", version.ref = "glance" }
+glance-material3 = { module = "androidx.glance:glance-material3", version.ref = "glance" }
 
 [bundles]
 project-level-gradle = [ "dagger-hilt-gradle", "gradle-build-tools", "gms-google-services", "firebase-crashlytics-gradle" ]
@@ -275,6 +276,7 @@ sqldelight = [ "sqldelight-android-driver", "sqldelight-coroutines-extensions-jv
 firebase = [ "firebase-firestore-ktx", "firebase-crashlytics-ktx", "firebase-analytics-ktx",
     "firebase-messaging-ktx", "firebase-auth-ktx", "firebase-realtime-database-ktx"
 ]
+glance = [ "glance-appwidget", "glance-material", "glance-material3" ]
 
 [plugins]
 # Core
