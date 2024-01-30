@@ -30,6 +30,8 @@ fun TutorialInputMaskScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(30.dp, Alignment.CenterVertically)
     ) {
+        Text(text = "Reverse", fontSize = 22.sp)
+        TutorialReverseVisualTransformation()
         Text(text = "Char", fontSize = 22.sp)
         TutorialCharVisualTransformation()
         Text(text = "Manual", fontSize = 22.sp)
@@ -37,6 +39,45 @@ fun TutorialInputMaskScreen() {
         Text(text = "Auto", fontSize = 22.sp)
         TutorialAutoVisualTransformation()
     }
+}
+
+// Ex: R$ 0,00| R$ 0,02| R$ 0,23| R$ 2,34|
+@Composable
+fun TutorialReverseVisualTransformation() {
+    class ReverseVisualTransformation : VisualTransformation {
+        override fun filter(text: AnnotatedString): TransformedText {
+            val inputText = text.text
+            val inputTextLastIndex = inputText.lastIndex
+            val formattedText = "${inputText[inputTextLastIndex - 2]}," + // "000123" "1,23"
+                    "${inputText[inputTextLastIndex - 1]}${inputText[inputTextLastIndex]}"
+
+            val offsetTranslator = object : OffsetMapping {
+                override fun originalToTransformed(offset: Int): Int {
+                    return 4 // "1,23" = 4
+                }
+
+                override fun transformedToOriginal(offset: Int): Int {
+                    return 3 // "123" = 3
+                }
+            }
+            return TransformedText(AnnotatedString(formattedText) , offsetTranslator)
+        }
+    }
+
+    var inputText by remember { mutableStateOf("000") }
+    val inputLimit = 6 // "000123" "1,23"
+
+    TextField(
+        value = inputText,
+        onValueChange = { currentText ->
+            inputText = if (currentText.length < 4 || currentText.take(3) != "000") "000"
+            else currentText.filter { it.isDigit() }.take(inputLimit)
+        },
+        label = { Text(text = "Reverse") },
+        prefix = { Text(text = "R$ ") },
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+        visualTransformation = ReverseVisualTransformation()
+    )
 }
 
 @Composable
