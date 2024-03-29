@@ -35,23 +35,13 @@ fun TutorialHorizontalPager() {
     Box(modifier = Modifier.fillMaxSize()) {
         HorizontalPager(state = horizontalPagerState) { currentPage ->
             when (currentPage) {
-                0 -> Box(modifier = Modifier
-                    .fillMaxSize()
-                    .background(pageItems[0]))
-                1 -> Box(modifier = Modifier
-                    .fillMaxSize()
-                    .background(pageItems[1]))
-                2 -> Box(modifier = Modifier
-                    .fillMaxSize()
-                    .background(pageItems[2]))
+                0 -> Box(modifier = Modifier.fillMaxSize().background(pageItems[0]))
+                1 -> Box(modifier = Modifier.fillMaxSize().background(pageItems[1]))
+                2 -> Box(modifier = Modifier.fillMaxSize().background(pageItems[2]))
             }
         }
 
-        Row(
-            modifier = Modifier
-                .padding(50.dp)
-                .align(Alignment.BottomCenter),
-        ) {
+        Row(modifier = Modifier.padding(50.dp).align(Alignment.BottomCenter)) {
             pageItems.forEachIndexed { index, color ->
                 Canvas(
                     modifier = Modifier
@@ -78,23 +68,13 @@ fun TutorialVerticalPager() {
     Box(modifier = Modifier.fillMaxSize()) {
         HorizontalPager(state = verticalPagerState) { currentPage ->
             when (currentPage) {
-                0 -> Box(modifier = Modifier
-                    .fillMaxSize()
-                    .background(pageItems[0]))
-                1 -> Box(modifier = Modifier
-                    .fillMaxSize()
-                    .background(pageItems[1]))
-                2 -> Box(modifier = Modifier
-                    .fillMaxSize()
-                    .background(pageItems[2]))
+                0 -> Box(modifier = Modifier.fillMaxSize().background(pageItems[0]))
+                1 -> Box(modifier = Modifier.fillMaxSize().background(pageItems[1]))
+                2 -> Box(modifier = Modifier.fillMaxSize().background(pageItems[2]))
             }
         }
 
-        Row(
-            modifier = Modifier
-                .padding(50.dp)
-                .align(Alignment.BottomCenter),
-        ) {
+        Row(modifier = Modifier.padding(50.dp).align(Alignment.BottomCenter)) {
             pageItems.forEachIndexed { index, color ->
                 Canvas(
                     modifier = Modifier
