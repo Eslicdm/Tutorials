@@ -1,4 +1,5 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import java.io.FileInputStream
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
@@ -27,7 +28,9 @@ android {
             useSupportLibrary = true
         }
 
-        val apiKey = gradleLocalProperties(rootDir).getProperty("API_KEY")
+        val apiKey = Properties().apply {
+            load(FileInputStream(File(rootProject.rootDir, "local.properties")))
+        }.getProperty("API_KEY")
         buildConfigField("String", "API_KEY", apiKey)
     }
 
@@ -47,6 +50,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.compose.asProvider().get()

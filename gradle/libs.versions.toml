@@ -1,28 +1,28 @@
 [versions]
 # Plugins
-android-gradle = "8.2.1"
-kotlin = "1.9.22"
-compose = "1.5.8"
+android-gradle = "8.3.1"
+kotlin = "1.9.23"
+compose = "1.5.11"
 compile-target-sdk = "34"
 min-sdk = "21"
 java = "17"
 ksp-plugin = "1.9.10-1.0.13"
-gms-google-services = "4.4.0"
+gms-google-services = "4.4.1"
 firebase-crashlytics-gradle = "2.9.9"
 kotlin-serialization-plugin = "1.9.0"
 graphql-plugin = "3.8.2"
 sqldelight-driver-coroutine-plugin = "2.0.1"
 
 # Core
-compose-foundation = "1.6.0-beta03"
-compose-material3 = "1.2.0-beta01"
-compose-material = "1.6.0-beta03"
+compose-foundation = "1.6.4"
+compose-material3 = "1.2.1"
+compose-material = "1.6.4"
 core-ktx = "1.12.0"
-compose-ui = "1.5.4"
-compose-ui-tooling = "1.5.4"
-compose-ui-tooling-preview = "1.5.4"
-lifecycle-runtime-ktx = "2.6.2"
-lifecycle-runtime-compose = "2.6.2"
+compose-ui = "1.6.4"
+compose-ui-tooling = "1.6.4"
+compose-ui-tooling-preview = "1.6.4"
+lifecycle-runtime-ktx = "2.7.0"
+lifecycle-runtime-compose = "2.7.0"
 activity-compose = "1.8.2"
 
 # Test
@@ -32,26 +32,26 @@ kotlinx-coroutines-test = "1.7.3"
 junit = "4.13.2"
 mockk = "1.13.8"
 ktor-client-mock = "2.3.5"
-compose-ui-test-manifest = "1.5.4"
-navigation-testing = "2.7.6"
+compose-ui-test-manifest = "1.6.4"
+navigation-testing = "2.7.7"
 espresso-core = "3.5.1"
-compose-ui-test-junit4 = "1.5.4"
+compose-ui-test-junit4 = "1.6.4"
 
 # Animation
-compose-animation = "1.6.0-beta03"
-animation-graphics-android = "1.6.0-beta03"
+compose-animation = "1.6.4"
+animation-graphics-android = "1.6.4"
 
 # Lottie
 lottie-compose = "6.1.0"
 
 # Webkit
-webkit = "1.9.0"
+webkit = "1.10.0"
 
 # Window Manager
 window = "1.2.0"
 
 # Window Size Material 3
-material3-window-size = "1.1.2"
+material3-window-size = "1.2.1"
 
 # Accompanist - Permissions, Adaptive Layout
 accompanist-adaptive = "0.27.0"
@@ -91,35 +91,35 @@ room = "2.6.1"
 
 # Firebase
 # Firestore
-firebase-firestore-ktx = "24.10.0"
+firebase-firestore-ktx = "24.11.0"
 # Crashlytics
-firebase-crashlytics-ktx = "18.6.0"
-firebase-analytics-ktx = "21.5.0"
+firebase-crashlytics-ktx = "18.6.3"
+firebase-analytics-ktx = "21.6.1"
 # Messaging
-firebase-messaging-ktx = "23.4.0"
+firebase-messaging-ktx = "23.4.1"
 # Auth
-firebase-auth-ktx = "22.3.0"
+firebase-auth-ktx = "22.3.1"
 # RealTime
-firebase-realtime-database-ktx = "20.3.0"
+firebase-realtime-database-ktx = "20.3.1"
 
 # Navigation
-androidx-navigation-compose = "2.7.6"
+androidx-navigation-compose = "2.7.7"
 
 # viewModel()
 androidx-lifecycle-viewmodel-compose = "2.6.2"
 
 # Admob
-admob = "22.6.0"
+admob = "23.0.0"
 
 # Hilt
 dagger-hilt-android-compile-gradle-plugin = "2.48.1"
-hilt-compiler-navigation-compose = "1.1.0"
+hilt-compiler-navigation-compose = "1.2.0"
 
 # Koin
 koin-androidx-compose = "3.5.0"
 
 # Extended Icons
-material-icons-extended = "1.5.4"
+material-icons-extended = "1.6.4"
 
 # Glance
 glance = "1.0.0"
