@@ -3,7 +3,7 @@ package com.eslirodrigues.tutorials
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.eslirodrigues.tutorials.divider.ui.screen.TutorialDivider
+import com.eslirodrigues.tutorials.font.ui.screen.TutorialFontScreen
 import com.eslirodrigues.tutorials.ui.theme.TutorialsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             TutorialsTheme {
-                TutorialDivider()
+                TutorialFontScreen()
             }
         }
     }

@@ -14,13 +14,13 @@ graphql-plugin = "3.8.2"
 sqldelight-driver-coroutine-plugin = "2.0.1"
 
 # Core
-compose-foundation = "1.6.4"
+compose-foundation = "1.6.5"
 compose-material3 = "1.2.1"
-compose-material = "1.6.4"
+compose-material = "1.6.5"
 core-ktx = "1.12.0"
-compose-ui = "1.6.4"
-compose-ui-tooling = "1.6.4"
-compose-ui-tooling-preview = "1.6.4"
+compose-ui = "1.6.5"
+compose-ui-tooling = "1.6.5"
+compose-ui-tooling-preview = "1.6.5"
 lifecycle-runtime-ktx = "2.7.0"
 lifecycle-runtime-compose = "2.7.0"
 activity-compose = "1.8.2"
@@ -32,14 +32,14 @@ kotlinx-coroutines-test = "1.7.3"
 junit = "4.13.2"
 mockk = "1.13.8"
 ktor-client-mock = "2.3.5"
-compose-ui-test-manifest = "1.6.4"
+compose-ui-test-manifest = "1.6.5"
 navigation-testing = "2.7.7"
 espresso-core = "3.5.1"
-compose-ui-test-junit4 = "1.6.4"
+compose-ui-test-junit4 = "1.6.5"
 
 # Animation
-compose-animation = "1.6.4"
-animation-graphics-android = "1.6.4"
+compose-animation = "1.6.5"
+animation-graphics-android = "1.6.5"
 
 # Lottie
 lottie-compose = "6.1.0"
@@ -112,14 +112,14 @@ androidx-lifecycle-viewmodel-compose = "2.6.2"
 admob = "23.0.0"
 
 # Hilt
-dagger-hilt-android-compile-gradle-plugin = "2.48.1"
+dagger-hilt-android-compile-gradle-plugin = "2.49"
 hilt-compiler-navigation-compose = "1.2.0"
 
 # Koin
 koin-androidx-compose = "3.5.0"
 
 # Extended Icons
-material-icons-extended = "1.6.4"
+material-icons-extended = "1.6.5"
 
 # Glance
 glance = "1.0.0"
