@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">Tutorials</string>
-    <string name="ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
-    <string name="dependency_string">Dependency String</string>
-    <string name="toast_showed">Toast Showed</string>
+    <string name="app_name" translatable="false">Tutorials</string>
+    <string name="ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="dependency_string" translatable="false">Dependency String</string>
+    <string name="toast_showed" translatable="false">Toast Showed</string>
+    <string name="thank_you">Thank You</string>
 </resources>
