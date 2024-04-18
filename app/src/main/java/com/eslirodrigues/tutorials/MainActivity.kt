@@ -3,7 +3,7 @@ package com.eslirodrigues.tutorials
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.eslirodrigues.tutorials.detect_gestures.ui.screen.TutorialDetectGesturesScreen
+import com.eslirodrigues.tutorials.input_mask.ui.screen.TutorialInputMaskScreen
 import com.eslirodrigues.tutorials.ui.theme.TutorialsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             TutorialsTheme {
-                TutorialDetectGesturesScreen()
+                TutorialInputMaskScreen()
             }
         }
     }

@@ -30,55 +30,19 @@ fun TutorialInputMaskScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(30.dp, Alignment.CenterVertically)
     ) {
-        Text(text = "Reverse", fontSize = 22.sp)
-        TutorialReverseVisualTransformation()
         Text(text = "Char", fontSize = 22.sp)
         TutorialCharVisualTransformation()
         Text(text = "Manual", fontSize = 22.sp)
         TutorialManualVisualTransformation()
         Text(text = "Auto", fontSize = 22.sp)
         TutorialAutoVisualTransformation()
+        Text(text = "Reverse", fontSize = 22.sp)
+        TutorialReverseVisualTransformation()
+        Text(text = "Currency Conversion", fontSize = 22.sp)
+        TutorialCurrencyConversionVisualTransformation()
     }
 }
 
-// Ex: R$ 0,00| R$ 0,02| R$ 0,23| R$ 2,34|
-@Composable
-fun TutorialReverseVisualTransformation() {
-    class ReverseVisualTransformation : VisualTransformation {
-        override fun filter(text: AnnotatedString): TransformedText {
-            val inputText = text.text
-            val inputTextLastIndex = inputText.lastIndex
-            val formattedText = "${inputText[inputTextLastIndex - 2]}," + // "000123" "1,23"
-                    "${inputText[inputTextLastIndex - 1]}${inputText[inputTextLastIndex]}"
-
-            val offsetTranslator = object : OffsetMapping {
-                override fun originalToTransformed(offset: Int): Int {
-                    return 4 // "1,23" = 4
-                }
-
-                override fun transformedToOriginal(offset: Int): Int {
-                    return 3 // "123" = 3
-                }
-            }
-            return TransformedText(AnnotatedString(formattedText) , offsetTranslator)
-        }
-    }
-
-    var inputText by remember { mutableStateOf("000") }
-    val inputLimit = 6 // "000123" "1,23"
-
-    TextField(
-        value = inputText,
-        onValueChange = { currentText ->
-            inputText = if (currentText.length < 4 || currentText.take(3) != "000") "000"
-            else currentText.filter { it.isDigit() }.take(inputLimit)
-        },
-        label = { Text(text = "Reverse") },
-        prefix = { Text(text = "R$ ") },
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
-        visualTransformation = ReverseVisualTransformation()
-    )
-}
 
 @Composable
 fun TutorialCharVisualTransformation() {
@@ -120,7 +84,7 @@ fun TutorialManualVisualTransformation() {
                     val transformedCursor = when (offset) {
                         in (1..2) -> offset + 1 // "(XX|" offset = 2, sep = 1, result = 3
                         in (3..7) -> offset + 3 // "(XX) X|" offset = 3, sep = 3, result = 6
-                        in (8..11) -> offset + 6
+                        in (8..11) -> offset + 6 // 17 - 6 = 11
                         else -> offset
                     }
 
@@ -133,7 +97,7 @@ fun TutorialManualVisualTransformation() {
                     val originalCursor = when (offset) {
                         in (1..3) -> offset - 1 // "(XX|" offset = 3, sep = 1, result = 2
                         in (4..10) -> offset - 3 // "(XX) X|" offset = 6, sep = 3, result = 3
-                        in (11..17) -> offset - 6
+                        in (11..17) -> offset - 6 // 11 + 8 = 17
                         else -> offset
                     }
 
@@ -224,5 +188,116 @@ fun TutorialAutoVisualTransformation() {
             maskCharInput = maskCharInput,
             enableCursorMove = false
         )
+    )
+}
+
+// "Bug" - When click delete a lot of times, we need to add a number 4 times
+// Ex: R$ 0,00| R$ 0,02| R$ 0,23| R$ 2,34|
+@Composable
+fun TutorialReverseVisualTransformation() {
+    class ReverseVisualTransformation : VisualTransformation {
+        override fun filter(text: AnnotatedString): TransformedText {
+            val inputText = text.text
+            val inputTextLastIndex = inputText.lastIndex
+            val formattedText = "${inputText[inputTextLastIndex - 2]}," + // "000123" "1,23"
+                    "${inputText[inputTextLastIndex - 1]}${inputText[inputTextLastIndex]}"
+
+            val offsetTranslator = object : OffsetMapping {
+                override fun originalToTransformed(offset: Int): Int = 4 // "1,23" = 4
+                override fun transformedToOriginal(offset: Int): Int = 3 // "123" = 3
+            }
+            return TransformedText(AnnotatedString(formattedText), offsetTranslator)
+        }
+    }
+
+    var inputText by remember { mutableStateOf("000") }
+    val inputLimit = 6 // "000123" "1,23"
+
+    TextField(
+        value = inputText,
+        onValueChange = { currentText ->
+            inputText = if (currentText.take(3) != "000") "000"
+            else currentText.filter { it.isDigit() }.take(inputLimit)
+        },
+        label = { Text(text = "Reverse") },
+        prefix = { Text(text = "R$ ") },
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+        visualTransformation = ReverseVisualTransformation()
+    )
+}
+
+@Composable
+fun TutorialCurrencyConversionVisualTransformation() {
+    class CurrencyConversionVisualTransformation(val enableCursorMove: Boolean) : VisualTransformation {
+        override fun filter(text: AnnotatedString): TransformedText {
+            val inputText = text.text
+            val formattedText = buildAnnotatedString {
+                inputText.reversed().forEachIndexed { index, c ->
+                    when (index) {
+                        5, 8, 11, 14, 17, 20, 23, 26, 29 -> append(".$c")
+                        1 -> append("$c,")
+                        else -> append(c)
+                    }
+                }
+            }.reversed().toString()
+
+            // the basic logic is offset + separator.
+            // "Bug" - sometime the cursor jump 2 chars when user is moving (cursorEnabled)
+            val offsetTranslator = object : OffsetMapping {
+                override fun originalToTransformed(offset: Int): Int {
+                    val transformedCursor = when (offset) { // 111.111.111.111.111.111.111.111.111.111,00
+                        in 2..4 -> offset + 1
+                        in 6..8 -> offset + 2
+                        in 9..11 -> offset + 3
+                        in 12..14 -> offset + 4
+                        in 15..17 -> offset + 5
+                        in 18..20 -> offset + 6
+                        in 21..23 -> offset + 7
+                        in 24..26 -> offset + 8
+                        in 27..29 -> offset + 9 // 38 - 9 = 29
+                        else -> offset
+                    }
+                    return if (enableCursorMove) transformedCursor else formattedText.length
+                }
+
+                // the basic logic is offset - separator.
+                // "Bug" - sometime the cursor jump 2 chars when user is moving (cursorEnabled)
+                override fun transformedToOriginal(offset: Int): Int {
+                    val originalCursor = when (offset) { // 111.111.111.111.111.111.111.111.111.111,00
+                        in 2..6 -> offset - 1
+                        in 7..10 -> offset - 2
+                        in 11..14 -> offset - 3
+                        in 15..18 -> offset - 4
+                        in 19..22 -> offset - 5
+                        in 23..26 -> offset - 6
+                        in 27..30 -> offset - 7
+                        in 31..34 -> offset - 8
+                        in 35..38 -> offset - 9 // 29 + 9 = 38
+                        else -> offset
+                    }
+                    return if (enableCursorMove) originalCursor else inputText.length
+                }
+            }
+            return TransformedText(AnnotatedString(formattedText), offsetTranslator)
+        }
+    }
+
+    // "Bug" - When delete the "000" the cursor moves, the cursor should be in a fixed position
+    // that's why enableCursorMove is used in the inputText, so users can remove chars in wrong positions
+    // Maybe is not a good idea yet to let the cursor move and have prefixed values like "000"
+    val enableCursorMove = false
+    var inputText by remember { mutableStateOf(if (enableCursorMove) "000" else "") }
+    val inputLimit = 29 // 111.111.111.111.111.111.111.111.111.111,00
+
+    TextField(
+        value = inputText,
+        onValueChange = { currentText ->
+            inputText = if (currentText.length < 3 && enableCursorMove) "000"
+            else currentText.filter { it.isDigit() }.take(inputLimit)
+        },
+        label = { Text(text = "Currency Conversion") },
+        prefix = { Text(text = "R$ ") },
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+        visualTransformation = CurrencyConversionVisualTransformation(enableCursorMove)
     )
 }
