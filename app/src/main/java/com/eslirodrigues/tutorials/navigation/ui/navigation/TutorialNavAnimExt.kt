@@ -12,24 +12,19 @@ import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.TransformOrigin
-import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 
-fun NavGraphBuilder.composableSlideHorizontally(
-    route: String,
-    arguments: List<NamedNavArgument> = emptyList(),
+inline fun <reified Route : Any> NavGraphBuilder.composableSlideHorizontally(
     duration: Int = 400, // 1000 - 400
     enterOffset: Int = 1000, // 300 - 1000
     exitOffset: Int = -1000,
     popEnterOffset: Int = -1000,
     popExitOffset: Int = 1000,
-    screen: @Composable AnimatedContentScope.(NavBackStackEntry) -> Unit
+    crossinline screen: @Composable AnimatedContentScope.(NavBackStackEntry) -> Unit
 ) {
-    composable(
-        route = route,
-        arguments = arguments,
+    composable<Route>(
         enterTransition = { slideInHorizontally(tween(duration)) { enterOffset } },
         exitTransition = { slideOutHorizontally(tween(duration)){ exitOffset } },
         popEnterTransition = { slideInHorizontally(tween(duration)) { popEnterOffset } },
@@ -38,19 +33,15 @@ fun NavGraphBuilder.composableSlideHorizontally(
     )
 }
 
-fun NavGraphBuilder.composableSlideVertically(
-    route: String,
-    arguments: List<NamedNavArgument> = emptyList(),
+inline fun <reified Route : Any> NavGraphBuilder.composableSlideVertically(
     duration: Int = 400, // 1000 - 400
     enterOffset: Int = 1000, // 300 - 1000
     exitOffset: Int = -1000,
     popEnterOffset: Int = -1000,
     popExitOffset: Int = 1000,
-    screen: @Composable AnimatedContentScope.(NavBackStackEntry) -> Unit
+    crossinline screen: @Composable AnimatedContentScope.(NavBackStackEntry) -> Unit
 ) {
-    composable(
-        route = route,
-        arguments = arguments,
+    composable<Route>(
         enterTransition = { slideInVertically(tween(duration)) { enterOffset } },
         exitTransition = { slideOutVertically(tween(duration)){ exitOffset } },
         popEnterTransition = { slideInVertically(tween(duration)) { popEnterOffset } },
@@ -59,19 +50,15 @@ fun NavGraphBuilder.composableSlideVertically(
     )
 }
 
-fun NavGraphBuilder.composableFade(
-    route: String,
-    arguments: List<NamedNavArgument> = emptyList(),
+inline fun <reified Route : Any> NavGraphBuilder.composableFade(
     duration: Int = 600, // 200 - 600
     enterAlpha: Float = 0f, // 1f - 0f
     exitAlpha: Float = 0f,
     popEnterAlpha: Float = 0f,
     popExitAlpha: Float = 0f,
-    screen: @Composable AnimatedContentScope.(NavBackStackEntry) -> Unit
+    crossinline screen: @Composable AnimatedContentScope.(NavBackStackEntry) -> Unit
 ) {
-    composable(
-        route = route,
-        arguments = arguments,
+    composable<Route>(
         enterTransition = { fadeIn(tween(duration), enterAlpha) },
         exitTransition = { fadeOut(tween(duration), exitAlpha) },
         popEnterTransition = { fadeIn(tween(duration), popEnterAlpha) },
@@ -80,9 +67,7 @@ fun NavGraphBuilder.composableFade(
     )
 }
 
-fun NavGraphBuilder.composableScale(
-    route: String,
-    arguments: List<NamedNavArgument> = emptyList(),
+inline fun <reified route : Any> NavGraphBuilder.composableScale(
     duration: Int = 300, // 300 - 600 - 400
     enterScale: Float = 400f, // 400f - 0f - 100f
     exitScale: Float = 400f,
@@ -92,11 +77,9 @@ fun NavGraphBuilder.composableScale(
     scaleExitOrigin: Pair<Float, Float> = Pair(0.5f, 0.5f), // 0.5f, 0.5f - 1f, 1f - 0.5f, 1f
     scalePopEnterOrigin: Pair<Float, Float> = Pair(0.5f, 0.5f), // 0.5f, 0.5f - 1f, 1f - 0.5f, 1f
     scalePopExitOrigin: Pair<Float, Float> = Pair(0.5f, 0.5f), // 0.5f, 0.5f - 1f, 1f - 0.5f, 1f
-    screen: @Composable AnimatedContentScope.(NavBackStackEntry) -> Unit
+    crossinline screen: @Composable AnimatedContentScope.(NavBackStackEntry) -> Unit
 ) {
-    composable(
-        route = route,
-        arguments = arguments,
+    composable<route>(
         enterTransition = { scaleIn(tween(duration), enterScale, TransformOrigin(scaleEnterOrigin.first, scaleEnterOrigin.second)) },
         exitTransition = { scaleOut(tween(duration), exitScale, TransformOrigin(scaleExitOrigin.first, scaleExitOrigin.second)) },
         popEnterTransition = { scaleIn(tween(duration), popEnterScale, TransformOrigin(scalePopEnterOrigin.first, scalePopEnterOrigin.second)) },

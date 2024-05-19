@@ -14,7 +14,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 
 @Composable
-fun NavMainScreen(
+fun TutorialNavMainScreen(
     onNavClick: (name: String, isOverEighteen: Boolean) -> Unit
 ) {
     var name by remember { mutableStateOf("") }
