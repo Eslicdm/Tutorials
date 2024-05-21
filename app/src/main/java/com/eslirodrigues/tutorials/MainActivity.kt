@@ -3,7 +3,7 @@ package com.eslirodrigues.tutorials
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.eslirodrigues.tutorials.navigation.ui.navigation.TutorialNavGraph
+import com.eslirodrigues.tutorials.rotation.ui.screen.TutorialRotationScreen
 import com.eslirodrigues.tutorials.ui.theme.TutorialsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -14,7 +14,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TutorialsTheme {
-                TutorialNavGraph()
+                TutorialRotationScreen()
             }
         }
     }
