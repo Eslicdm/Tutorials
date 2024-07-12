@@ -11,6 +11,7 @@ plugins {
     alias(libs.plugins.devtools.ksp)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.apollo.graphql)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -51,9 +52,6 @@ android {
     buildFeatures {
         compose = true
         buildConfig = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.asProvider().get()
     }
     packaging {
         resources {
