@@ -154,6 +154,9 @@ dependencies {
 
     // Glance
     implementation(libs.bundles.glance)
+
+    // CameraX
+    implementation(libs.bundles.camerax)
 }
 
 sqldelight {

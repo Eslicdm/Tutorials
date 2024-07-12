@@ -3,7 +3,7 @@ package com.eslirodrigues.tutorials
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.eslirodrigues.tutorials.photo_picker.ui.screen.TutorialPhotoPickerScreen
+import com.eslirodrigues.tutorials.camera_capture.ui.screen.TutorialCameraCaptureScreen
 import com.eslirodrigues.tutorials.ui.theme.TutorialsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -14,7 +14,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TutorialsTheme {
-                TutorialPhotoPickerScreen()
+                TutorialCameraCaptureScreen()
             }
         }
     }
