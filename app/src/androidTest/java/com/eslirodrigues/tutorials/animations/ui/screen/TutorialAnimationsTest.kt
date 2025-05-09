@@ -4,6 +4,7 @@ import androidx.compose.ui.test.assertTextEquals
 import androidx.compose.ui.test.hasClickAction
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.performClick
+import com.eslirodrigues.tutorials.animations.AnimatedContent
 import org.junit.Rule
 import org.junit.Test
 
@@ -16,7 +17,7 @@ class TutorialAnimationsTest {
         composeRule.mainClock.autoAdvance = false
 
         composeRule.setContent {
-            TutorialAnimatedContent()
+            AnimatedContent()
         }
         composeRule.onNode(hasClickAction()).performClick()
 

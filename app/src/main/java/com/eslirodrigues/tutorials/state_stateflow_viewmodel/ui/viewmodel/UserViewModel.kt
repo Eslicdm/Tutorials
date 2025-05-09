@@ -49,6 +49,7 @@ class UserViewModel @Inject constructor(
             initialValue = UserState(isLoading = true)
         )
 
+    // Criar um evento
     fun addUserList(nameList: List<TutorialStateUser>) = viewModelScope.launch {
         _userState.update { it.copy(data = nameList) }
     }

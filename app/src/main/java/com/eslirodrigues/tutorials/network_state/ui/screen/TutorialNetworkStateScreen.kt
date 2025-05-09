@@ -1,7 +1,5 @@
 package com.eslirodrigues.tutorials.network_state.ui.screen
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,7 +16,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.eslirodrigues.tutorials.network_state.network.TutorialNetworkState
 import com.eslirodrigues.tutorials.network_state.ui.viewmodel.TutorialNetworkStateViewModel
 
-@RequiresApi(Build.VERSION_CODES.N)
 @Composable
 fun TutorialNetworkStateScreen(
     networkStateViewModel: TutorialNetworkStateViewModel = hiltViewModel()

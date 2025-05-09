@@ -1,6 +1,6 @@
 package com.eslirodrigues.tutorials.graphql.di
 
-import com.apollographql.apollo3.ApolloClient
+import com.apollographql.apollo.ApolloClient
 import com.eslirodrigues.tutorials.graphql.data.remote.TutorialGraphQLClient
 import com.eslirodrigues.tutorials.graphql.data.repository.TutorialGraphQLRepository
 import com.eslirodrigues.tutorials.graphql.data.repository.TutorialGraphQLRepositoryImpl

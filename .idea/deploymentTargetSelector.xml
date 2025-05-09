@@ -13,19 +13,16 @@
         </DropdownSelection>
         <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="navigateToSecondScreen_Assert_IsSecondScreenDestinationRouteRight()">
+      <SelectionState runConfigName="addUser_Assert_IsUserDisplayed()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="assert_IsMainScreenDestinationRouteRight()">
+      <SelectionState runConfigName="RoomUserScreenTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="NavigationTest">
+      <SelectionState runConfigName="Codes.Tutorials.app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="navigateToSecondScreen_Assert_IsSecondScreenDestinationRouteTrue()">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="navigateToSecondScreen_Assert_AreSecondScreenArgumentsCorrect()">
+      <SelectionState runConfigName="AndroidStudioProjects.Tutorials.app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

@@ -1,7 +1,5 @@
 package com.eslirodrigues.tutorials.network_state.ui.viewmodel
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eslirodrigues.tutorials.network_state.network.TutorialNetworkManager
@@ -17,7 +15,6 @@ class TutorialNetworkStateViewModel @Inject constructor(
     networkManager: TutorialNetworkManager
 ) : ViewModel() {
 
-    @RequiresApi(Build.VERSION_CODES.N)
     val networkState: StateFlow<TutorialNetworkState> = networkManager.getNetworkState().stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(5000L),

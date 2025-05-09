@@ -1,0 +1,5 @@
+Android State:
+https://developer.android.com/develop/ui/compose/state-hoisting?hl=pt-br
+
+
+

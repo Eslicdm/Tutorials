@@ -4,8 +4,9 @@ import androidx.activity.compose.setContent
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import com.eslirodrigues.tutorials.MainActivity
-import com.eslirodrigues.tutorials.lazy_row_column_grid.ui.screen.TestTagsConstants.INDEX_CAT_NUMBER
-import com.eslirodrigues.tutorials.lazy_row_column_grid.ui.screen.TestTagsConstants.LAZY_COLUMN
+import com.eslirodrigues.tutorials.utils.lazy_row_column_grid.TestTagsConstants.INDEX_CAT_NUMBER
+import com.eslirodrigues.tutorials.utils.lazy_row_column_grid.TestTagsConstants.LAZY_COLUMN
+import com.eslirodrigues.tutorials.utils.lazy_row_column_grid.TutorialLazyScreen
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
