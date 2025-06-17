@@ -33,5 +33,5 @@ object DatabasesModule {
     @Provides
     fun provideRoomRepository(
         roomUserDao: RoomUserDao
-    ) : RoomUserRepository = RoomUserRepository(roomUserDao)
+    ) : RoomUserRepositoryImpl = RoomUserRepositoryImpl(roomUserDao)
 }

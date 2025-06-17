@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
 
-class RoomUserRepository @Inject constructor(
+class RoomUserRepositoryImpl @Inject constructor(
     private val roomUserDao: RoomUserDao,
 ) : DatabasesUserRepository {
 
@@ -48,7 +48,7 @@ class RoomUserRepository @Inject constructor(
         }
     }.flowOn(Dispatchers.IO)
 
-    override suspend fun getAllUsers(): Flow<DatabasesUserResult<List<DatabasesUser>>> = callbackFlow {
+    override fun getAllUsers(): Flow<DatabasesUserResult<List<DatabasesUser>>> = callbackFlow {
         roomUserDao.getAllUsers().onStart {
             trySend(DatabasesUserResult.Loading)
         }.catch { e ->

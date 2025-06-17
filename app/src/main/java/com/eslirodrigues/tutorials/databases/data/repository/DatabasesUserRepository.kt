@@ -8,5 +8,5 @@ interface DatabasesUserRepository {
     suspend fun addUser(user: DatabasesUser) : Flow<DatabasesUserResult<String>>
     suspend fun updateUser(user: DatabasesUser) : Flow<DatabasesUserResult<String>>
     suspend fun deleteUser(user: DatabasesUser) : Flow<DatabasesUserResult<String>>
-    suspend fun getAllUsers(): Flow<DatabasesUserResult<List<DatabasesUser>>>
+    fun getAllUsers(): Flow<DatabasesUserResult<List<DatabasesUser>>>
 }
