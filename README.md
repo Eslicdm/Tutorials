@@ -62,3 +62,7 @@ Below is a list of the tutorial packages included in this project. Each package 
     *   **Description:** *(Contains various reusable Compose components and utility functions used across the tutorials.)*
 *   **`window_manager`**
     *   **Description:** *(Explains how to use Jetpack WindowManager for supporting different windows sizes)*
+ *   **`test`**
+    *   **Description:** *(Unit tests with MockWebServer, MockK, Robolectric, Truth)*
+ *   **`androidTest`**
+    *   **Description:** *(Integration tests with ComposeRule, Junit, Espresso)*
